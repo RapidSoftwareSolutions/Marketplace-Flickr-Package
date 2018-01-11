@@ -15,7 +15,7 @@ $app->post('/api/Flickr/getGroupInfo', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key','groupId'=>'group_id'];
     $optionalParams = ['groupPathAlias'=>'group_path_alias','lang'=>'lang'];
     $bodyParams = [
-       'query' => ['api_key','method','groupId','groupPathAlias','lang','nojsoncallback']
+       'query' => ['api_key','method','group_id','group_path_alias','lang','nojsoncallback','format']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -26,8 +26,8 @@ $app->post('/api/Flickr/getGroupInfo', function ($request, $response) {
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.groups.getInfo';
-$data['format'] = 'json';
-$data['nojsoncallback'] = '1';
+    $data['format'] = 'json';
+    $data['nojsoncallback'] = '1';
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];

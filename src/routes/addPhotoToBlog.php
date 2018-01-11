@@ -37,7 +37,9 @@ $app->post('/api/Flickr/addPhotoToBlog', function ($request, $response) {
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.blogs.postPhoto';
-$data['format'] = 'json';
+    $data['format'] = 'json';
+    $data['nojsoncallback'] = '1';
+
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];

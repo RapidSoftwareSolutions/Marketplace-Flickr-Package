@@ -1336,7 +1336,7 @@
                     "name": "userId",
                     "type": "String",
                     "info": "The NSID of the user to fetch the contact list for.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "user_id"
                     }
@@ -1820,7 +1820,7 @@
                     "name": "userId",
                     "type": "String",
                     "info": "The NSID of the user to fetch the favorites list for. If this argument is omitted, the favorites list for the calling user is returned.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "user_id"
                     }
@@ -4343,7 +4343,7 @@
             ]
         },
         {
-            "name": "getMembersGroupKist",
+            "name": "getMembersGroupList",
             "description": "Get a list of the members of a group. The call must be signed on behalf of a Flickr member, and the ability to see the group membership will be determined by the Flickr member's group privileges.",
             "args": [
                 {

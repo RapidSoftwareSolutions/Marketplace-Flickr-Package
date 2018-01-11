@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Flickr/getMembersGroupKist', function ($request, $response) {
+$app->post('/api/Flickr/getMembersGroupList', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;

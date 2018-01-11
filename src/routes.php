@@ -46,7 +46,7 @@ $routes = [
     'addDiscussionTopicToGroup',
     'getGroupDiscussionTopicInfo',
     'getListDiscussionTopicsInGroup',
-    'getMembersGroupKist',
+    'getMembersGroupList',
     'addPhotoToGroupPool',
     'getGroupsPoolsContext',
     'getGroupsPoolsList',

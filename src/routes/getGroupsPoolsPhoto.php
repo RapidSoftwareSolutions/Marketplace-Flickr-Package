@@ -15,7 +15,7 @@ $app->post('/api/Flickr/getGroupsPoolsPhoto', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key','groupId'=>'group_id'];
     $optionalParams = ['tags'=>'tags','user_id'=>'user_id','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
     $bodyParams = [
-       'query' => ['api_key','method','group_id','user_id','tags','extras','per_page','page','nojsoncallback']
+       'query' => ['api_key','method','group_id','user_id','tags','extras','per_page','page','nojsoncallback','format']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

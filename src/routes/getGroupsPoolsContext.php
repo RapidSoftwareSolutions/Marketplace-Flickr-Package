@@ -15,7 +15,7 @@ $app->post('/api/Flickr/getGroupsPoolsContext', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key','groupId'=>'group_id','photoId'=>'photo_id'];
     $optionalParams = [];
     $bodyParams = [
-       'query' => ['api_key','method','photo_id','user_id','nojsoncallback']
+       'query' => ['api_key','method','photo_id','nojsoncallback','format']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
