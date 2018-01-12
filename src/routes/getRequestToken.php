@@ -43,7 +43,7 @@ $app->post('/api/Flickr/getRequestToken', function ($request, $response) {
         $resp = $client->get($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) && json_decode($responseBody, true)['stat'] == 'ok') {
             $result['callback'] = 'success';
             $result['contextWrites']['to']['result'] = $responseBody;
             if(empty($result['contextWrites']['to'])) {

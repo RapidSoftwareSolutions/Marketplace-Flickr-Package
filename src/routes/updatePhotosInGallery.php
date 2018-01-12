@@ -15,7 +15,7 @@ $app->post('/api/Flickr/updatePhotosInGallery', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','primaryPhotoId'=>'primary_photo_id','photoIds'=>'photo_ids','galleryId'=>'gallery_id'];
     $optionalParams = [];
     $bodyParams = [
-       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','photo_id','comment','gallery_id','nojsoncallback']
+       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','comment','photo_ids','primary_photo_id','gallery_id','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -49,7 +49,7 @@ $data['nojsoncallback'] = '1';
         $resp = $client->post($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) && json_decode($responseBody, true)['stat'] == 'ok') {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
             if(empty($result['contextWrites']['to'])) {

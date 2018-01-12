@@ -4,7 +4,7 @@ $app->post('/api/Flickr/getPopularPhotos', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','userId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -13,9 +13,9 @@ $app->post('/api/Flickr/getPopularPhotos', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'api_key'];
-    $optionalParams = ['sort'=>'sort','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
+    $optionalParams = ['sort'=>'sort','extras'=>'extras','perPage'=>'per_page','page'=>'page','userId' => 'user_id'];
     $bodyParams = [
-       'query' => ['api_key','method','format','sort','extras','per_page','page','nojsoncallback']
+       'query' => ['api_key','method','format','sort','extras','per_page','page','nojsoncallback','user_id']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -38,7 +38,7 @@ $data['nojsoncallback'] = '1';
         $resp = $client->get($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) && json_decode($responseBody, true)['stat'] == 'ok') {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
             if(empty($result['contextWrites']['to'])) {

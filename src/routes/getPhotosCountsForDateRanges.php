@@ -4,7 +4,7 @@ $app->post('/api/Flickr/getPhotosCountsForDateRanges', function ($request, $resp
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','dates']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -19,6 +19,14 @@ $app->post('/api/Flickr/getPhotosCountsForDateRanges', function ($request, $resp
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+
+    if(!empty($data['dates']))
+    {
+        foreach($data['dates'] as $key => $value)
+        {
+            $data['dates'][$key] = \Models\Params::toFormat($value, 'unixtime');
+        }
+    }
 
     
     if(isset($data['dates'])) { $data['dates'] = \Models\Params::toString($data['dates'], ','); }
@@ -41,6 +49,8 @@ $app->post('/api/Flickr/getPhotosCountsForDateRanges', function ($request, $resp
 $data['format'] = 'json';
 $data['nojsoncallback'] = '1';
 
+
+
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
      
@@ -49,7 +59,7 @@ $data['nojsoncallback'] = '1';
         $resp = $client->get($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) && json_decode($responseBody, true)['stat'] == 'ok') {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
             if(empty($result['contextWrites']['to'])) {

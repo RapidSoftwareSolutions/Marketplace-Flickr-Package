@@ -553,7 +553,10 @@ Get a list of the members of a group. The call must be signed on behalf of a Fli
 
 | Field      | Type       | Description
 |------------|------------|----------
-| apiKey     | credentials| ApiKey of the your app.
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
 | groupId    | String     | Pass in the group id to where the topic belongs. Can be NSID or group alias. Making this parameter optional for legacy reasons, but it is highly recommended to pass this in to get faster performance.
 | perPage    | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page       | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
@@ -950,6 +953,7 @@ Returns a list of popular photos.
 | extras | List       | List of extra information to fetch for each returned record.
 | perPage| Number     | Number of items to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is 500.
 | page   | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
+| userId | String     | The NSID of the user to fetch the contact list for.
 
 ## Flickr.getRecentPhotos
 Returns a list of the latest public photos uploaded to flickr.

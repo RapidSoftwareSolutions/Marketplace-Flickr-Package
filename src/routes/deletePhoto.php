@@ -36,7 +36,7 @@ $app->post('/api/Flickr/deletePhoto', function ($request, $response) {
     ]);
     $query_str = "https://api.flickr.com/services/rest";
 
-    $data['method'] = 'fflickr.photos.delete';
+    $data['method'] = 'flickr.photos.delete';
 $data['format'] = 'json';
 $data['nojsoncallback'] = '1';
 
@@ -48,7 +48,7 @@ $data['nojsoncallback'] = '1';
         $resp = $client->post($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) && json_decode($responseBody, true)['stat'] == 'ok') {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
             if(empty($result['contextWrites']['to'])) {

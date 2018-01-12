@@ -7296,7 +7296,7 @@
                         "info": "Single date."
                     },
                     "info": "List of dates, denoting the periods to return counts for.They should be specified smallest first.2 dates minimum.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "dates",
                         "format": "toString:{,}"
@@ -7865,6 +7865,15 @@
                     "required": true,
                     "vendorSchema": {
                         "name": "api_key"
+                    }
+                },
+                {
+                    "name": "userId",
+                    "type": "String",
+                    "info": "The NSID of the user to get a galleries list for. If none is specified, the calling user is assumed.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "user_id"
                     }
                 },
                 {
