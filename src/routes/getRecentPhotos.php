@@ -15,7 +15,7 @@ $app->post('/api/Flickr/getRecentPhotos', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key'];
     $optionalParams = ['extras'=>'extras','perPage'=>'per_page','page'=>'page'];
     $bodyParams = [
-       'query' => ['api_key','method','format','extras','per_page','page']
+       'query' => ['api_key','method','format','extras','per_page','page','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

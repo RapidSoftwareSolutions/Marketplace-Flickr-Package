@@ -15,7 +15,7 @@ $app->post('/api/Flickr/getPopularPhotos', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key'];
     $optionalParams = ['sort'=>'sort','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
     $bodyParams = [
-       'query' => ['api_key','method','format','sort','extras','per_page','page']
+       'query' => ['api_key','method','format','sort','extras','per_page','page','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

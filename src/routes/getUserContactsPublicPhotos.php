@@ -4,7 +4,7 @@ $app->post('/api/Flickr/getUserContactsPublicPhotos', function ($request, $respo
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','userId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -13,9 +13,9 @@ $app->post('/api/Flickr/getUserContactsPublicPhotos', function ($request, $respo
     }
 
     $requiredParams = ['apiKey'=>'api_key'];
-    $optionalParams = ['count'=>'count','justFriends'=>'just_friends','singlePhoto'=>'single_photo','includeSelf'=>'include_self','extras'=>'extras'];
+    $optionalParams = ['userId'=>'user_id','count'=>'count','justFriends'=>'just_friends','singlePhoto'=>'single_photo','includeSelf'=>'include_self','extras'=>'extras'];
     $bodyParams = [
-       'query' => ['api_key','method','format','nojsoncallback','count','just_friends','single_photo','include_self','extras']
+       'query' => ['user_id','api_key','method','format','nojsoncallback','count','just_friends','single_photo','include_self','extras']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

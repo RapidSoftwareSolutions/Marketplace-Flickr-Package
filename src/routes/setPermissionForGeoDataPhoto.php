@@ -20,6 +20,25 @@ $app->post('/api/Flickr/setPermissionForGeoDataPhoto', function ($request, $resp
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
+    if($post_data['args']['isPublic'] == 0)
+    {
+        $data['is_public'] = 0;
+    }
+
+    if($post_data['args']['isFriend'] == 0)
+    {
+        $data['is_friend'] = 0;
+    }
+
+    if($post_data['args']['isFamily'] == 0)
+    {
+        $data['is_family'] = 0;
+    }
+
+    if($post_data['args']['isContact'] == 0)
+    {
+        $data['is_contact'] = 0;
+    }
 
 
     $stack = GuzzleHttp\HandlerStack::create();

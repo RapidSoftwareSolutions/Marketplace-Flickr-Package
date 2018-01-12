@@ -18,8 +18,22 @@ $app->post('/api/Flickr/setPermissionsForPhoto', function ($request, $response) 
        'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','nojsoncallback','photo_id','perm_addmeta','perm_comment','is_family','is_friend','is_public']
     ];
 
-    $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
+    $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+    if($post_data['args']['isPublic'] == 0)
+    {
+        $data['is_public'] = 0;
+    }
+
+    if($post_data['args']['isFriend'] == 0)
+    {
+        $data['is_friend'] = 0;
+    }
+
+    if($post_data['args']['isFamily'] == 0)
+    {
+        $data['is_family'] = 0;
+    }
 
 
     $stack = GuzzleHttp\HandlerStack::create();
@@ -37,8 +51,8 @@ $app->post('/api/Flickr/setPermissionsForPhoto', function ($request, $response) 
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.photos.setPerms';
-$data['format'] = 'json';
-$data['nojsoncallback'] = '1';
+    $data['format'] = 'json';
+    $data['nojsoncallback'] = '1';
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];

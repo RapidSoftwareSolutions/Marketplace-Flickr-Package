@@ -15,7 +15,7 @@ $app->post('/api/Flickr/setMetaInformationForPhoto', function ($request, $respon
     $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','photoId'=>'photo_id'];
     $optionalParams = ['title'=>'title','description'=>'description'];
     $bodyParams = [
-       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','nojsoncallback','photo_id','title','descriptions']
+       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','nojsoncallback','photo_id','title','description']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -36,7 +36,7 @@ $app->post('/api/Flickr/setMetaInformationForPhoto', function ($request, $respon
     ]);
     $query_str = "https://api.flickr.com/services/rest";
 
-    $data['method'] = 'flickr.photos.setDates';
+    $data['method'] = 'flickr.photos.setMeta';
 $data['format'] = 'json';
 $data['nojsoncallback'] = '1';
 

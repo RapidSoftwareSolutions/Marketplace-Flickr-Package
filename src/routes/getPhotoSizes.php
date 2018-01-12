@@ -15,7 +15,7 @@ $app->post('/api/Flickr/getPhotoSizes', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key','photoId'=>'photo_id'];
     $optionalParams = [];
     $bodyParams = [
-       'query' => ['api_key','method','format','photo_id']
+       'query' => ['api_key','method','format','photo_id','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

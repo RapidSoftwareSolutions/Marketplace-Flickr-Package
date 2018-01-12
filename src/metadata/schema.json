@@ -4356,6 +4356,33 @@
                     }
                 },
                 {
+                    "name": "apiSecret",
+                    "type": "credentials",
+                    "info": "ApiSecret of the your app.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "api_secret"
+                    }
+                },
+                {
+                    "name": "accessToken",
+                    "type": "String",
+                    "info": "accessToken from the getAccessToken method.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "oauth_token"
+                    }
+                },
+                {
+                    "name": "accessSecret",
+                    "type": "String",
+                    "info": "accessSecret from the getAccessToken method.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "oauth_secret"
+                    }
+                },
+                {
                     "name": "groupId",
                     "type": "String",
                     "info": "Pass in the group id to where the topic belongs. Can be NSID or group alias. Making this parameter optional for legacy reasons, but it is highly recommended to pass this in to get faster performance.",
@@ -5410,7 +5437,7 @@
                     "name": "namespace",
                     "type": "String",
                     "info": "A namespace that all values should be restricted to.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "namespace"
                     }
@@ -5419,7 +5446,7 @@
                     "name": "predicate",
                     "type": "String",
                     "info": "A predicate that all values should be restricted to.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "predicate"
                     }
@@ -7031,6 +7058,15 @@
                     }
                 },
                 {
+                    "name": "userId",
+                    "type": "String",
+                    "info": "The NSID of the user to fetch photos for.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "user_id"
+                    }
+                },
+                {
                     "name": "count",
                     "type": "Number",
                     "info": "Number of photos to return. Defaults to 10, maximum 50. This is only used if single_photo is not passed.",
@@ -7137,7 +7173,8 @@
                             "just_friends",
                             "single_photo",
                             "include_self",
-                            "extras"
+                            "extras",
+                            "user_id"
                         ]
                     }
                 ]
@@ -9768,7 +9805,7 @@
                 "method": "post",
                 "vendorFieldsStructure": [
                     {
-                        "method": "flickr.photos.setDates",
+                        "method": "flickr.photos.setMeta",
                         "format": "json",
                         "nojsoncallback": "1"
                     }
@@ -11507,6 +11544,15 @@
                     }
                 },
                 {
+                    "name": "photoId",
+                    "type": "String",
+                    "info": "The id of the photo to set location data for.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "photo_id"
+                    }
+                },
+                {
                     "name": "accessToken",
                     "type": "String",
                     "info": "accessToken from the getAccessToken method.",
@@ -11581,7 +11627,8 @@
                             "lat",
                             "lon",
                             "accuracy",
-                            "context"
+                            "context",
+                            "photo_id"
                         ]
                     }
                 ]

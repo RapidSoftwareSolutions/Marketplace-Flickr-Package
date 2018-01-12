@@ -12,10 +12,10 @@ $app->post('/api/Flickr/getMembersGroupList', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'api_key','groupId'=>'group_id'];
+    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','groupId'=>'group_id'];
     $optionalParams = ['perPage'=>'per_page','page'=>'page','memberTypes'=>'membertypes'];
     $bodyParams = [
-       'query' => ['api_key','method','group_id','page','per_page','format','membertypes','nojsoncallback']
+       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','group_id','page','per_page','format','membertypes','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -23,7 +23,18 @@ $app->post('/api/Flickr/getMembersGroupList', function ($request, $response) {
     
     if(isset($data['membertypes'])) { $data['membertypes'] = \Models\Params::toString($data['membertypes'], ','); }
 
-    $client = $this->httpClient;
+    $stack = GuzzleHttp\HandlerStack::create();
+    $middleware = new GuzzleHttp\Subscriber\Oauth\Oauth1([
+        'consumer_key'    => $data['api_key'],
+        'consumer_secret' => $data['api_secret'],
+        'token'           => $data['oauth_token'],
+        'token_secret'    => $data['oauth_secret']
+    ]);
+    $stack->push($middleware);
+    $client = new \GuzzleHttp\Client([
+        'handler' => $stack,
+        'auth' => 'oauth'
+    ]);
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.groups.members.getList';

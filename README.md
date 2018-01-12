@@ -548,7 +548,7 @@ Get a list of discussion topics in a group.
 | perPage| Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page   | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
 
-## Flickr.getMembersGroupKist
+## Flickr.getMembersGroupList
 Get a list of the members of a group. The call must be signed on behalf of a Flickr member, and the ability to see the group membership will be determined by the Flickr member's group privileges.
 
 | Field      | Type       | Description
@@ -861,6 +861,7 @@ Fetch a list of recent public photos from a users' contacts.
 | singlePhoto| String     | Only fetch one photo (the latest) per contact, instead of all photos in chronological order.
 | includeSelf| Select     | Set to 1 to include photos from the calling user.
 | extras     | List       | List of extra information to fetch for each returned record.
+| userId    | String     | The NSID of the user to fetch photos for.
 
 ## Flickr.getPhotoStreamContexts
 Returns next and previous photos for a photo in a photostream.
@@ -1327,6 +1328,7 @@ Sets the geo data (latitude and longitude and, optionally, the accuracy level) f
 | coordinates | Map        | The latitude of the photos to be update whose valid range is -90 to 90.The longitude of the photos to be updated whose valid range is -180 to 180. 
 | accuracy    | Number     | Recorded accuracy level of the photos to be updated. World level is 1, Country is ~3, Region ~6, City ~11, Street ~16. Current range is 1-16. Defaults to 16 if not specified.
 | context     | Select     | Context is a numeric value representing the photo's geotagginess beyond latitude and longitude. For example, you may wish to indicate that a photo was taken `indoors` or `outdoors`. 
+| photoId     | String     | The id of the photo to set location data for.
 
 ## Flickr.setPermissionForGeoDataPhoto
 Set the permission for who may view the geo data associated with a photo.
