@@ -54,7 +54,7 @@ $app->post('/api/Flickr/uploadPhoto', function ($request, $response) {
         $resp = $client->post($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) && json_decode($responseBody, true)['stat'] == 'ok') {
+        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) ) {
             $result['callback'] = 'success';
             libxml_use_internal_errors(true);
             $responseBody =  simplexml_load_string($responseBody);
