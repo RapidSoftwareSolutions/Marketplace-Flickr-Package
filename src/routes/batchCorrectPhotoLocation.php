@@ -47,8 +47,8 @@ $app->post('/api/Flickr/batchCorrectPhotoLocation', function ($request, $respons
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.photos.geo.batchCorrectLocation';
-$data['format'] = 'json';
-$data['nojsoncallback'] = '1';
+    $data['format'] = 'json';
+    $data['nojsoncallback'] = '1';
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
