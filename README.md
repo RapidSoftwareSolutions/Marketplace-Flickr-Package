@@ -1,9 +1,8 @@
 [![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/Flickr/functions?utm_source=RapidAPIGitHub_FlickrFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 
-
 # Flickr Package
 Flickr - almost certainly the best online photo management and sharing application in the world.
-* Domain: [www.flickr.com](https://www.flickr.com)
+* Domain: [Flickr](http://www.flickr.com)
 * Credentials: apiKey, apiSecret
 
 ## How to get credentials: 
@@ -14,7 +13,8 @@ Flickr - almost certainly the best online photo management and sharing applicati
 4. After that,you need to get permission to use your application
 5. Use authorize url (`https://www.flickr.com/services/oauth/authorize?oauth_token=xxxx`)
 6. After authorization ,use getAccessToken for getting accessToken and accessSecret
- 
+
+
 ## Custom datatypes: 
  |Datatype|Description|Example
  |--------|-----------|----------
@@ -22,9 +22,9 @@ Flickr - almost certainly the best online photo management and sharing applicati
  |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
  |List|Simple array|```["123", "sample"]``` 
  |Select|String with predefined values|```sample```
- |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ``` 
-  
+ |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
  
+
 ## Flickr.getRequestToken
 Get request token.
 
@@ -551,16 +551,16 @@ Get a list of discussion topics in a group.
 ## Flickr.getMembersGroupList
 Get a list of the members of a group. The call must be signed on behalf of a Flickr member, and the ability to see the group membership will be determined by the Flickr member's group privileges.
 
-| Field      | Type       | Description
-|------------|------------|----------
+| Field       | Type       | Description
+|-------------|------------|----------
 | apiKey      | credentials| ApiKey of the your app.
 | apiSecret   | credentials| ApiSecret of the your app.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
-| groupId    | String     | Pass in the group id to where the topic belongs. Can be NSID or group alias. Making this parameter optional for legacy reasons, but it is highly recommended to pass this in to get faster performance.
-| perPage    | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
-| page       | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
-| memberTypes| List       | List of member types.By default returns all types.
+| groupId     | String     | Pass in the group id to where the topic belongs. Can be NSID or group alias. Making this parameter optional for legacy reasons, but it is highly recommended to pass this in to get faster performance.
+| perPage     | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
+| page        | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
+| memberTypes | List       | List of member types.By default returns all types.
 
 ## Flickr.addPhotoToGroupPool
 Add a photo to a group's pool.This method requires authentication with 'write' permission.
@@ -684,14 +684,14 @@ Return a list of unique values for a namespace and predicate.
 | predicate| String     | A predicate that all values should be restricted to.
 
 ## Flickr.getPandaList
-Return a list of Flickr pandas, from whom you can request photos using the flickr.panda.getPhotos API method.More information about the pandas can be found [here](http://code.flickr.com/blog/2009/03/03/panda-tuesday-the-history-of-the-panda-new-apis-explore-and-you/).
+Return a list of Flickr pandas, from whom you can request photos using the flickr.panda.getPhotos API method.More information about the pandas can be found in readme.
 
 | Field | Type       | Description
 |-------|------------|----------
 | apiKey| credentials| ApiKey of the your app.
 
 ## Flickr.getPandaPhotos
-Ask the Flickr Pandas for a list of recent public (and `safe`) photos. .More information about the pandas can be found [hete](http://code.flickr.com/blog/2009/03/03/panda-tuesday-the-history-of-the-panda-new-apis-explore-and-you/).
+Ask the Flickr Pandas for a list of recent public (and `safe`) photos. .More information about the pandas can be found in readme.
 
 | Field    | Type       | Description
 |----------|------------|----------
@@ -754,12 +754,12 @@ Return photos from the given user's photostream. Only photos visible to the call
 |--------------|------------|----------
 | apiKey       | credentials| ApiKey of the your app.
 | userId       | String     | The NSID of the user who's photos to return. A value of `me` will return the calling user's photos.
-| safeSearch   | Select     | Safe search setting.1 - for safe.2 - for moderate.3 - for restricted.
+| safeSearch   | Select     | Safe search setting.See more in readme.
 | minUploadDate| DatePicker | Minimum upload date. Photos with an upload date greater than or equal to this value will be returned. 
 | maxUploadDate| DatePicker | Maximum upload date. Photos with an upload date less than or equal to this value will be returned. 
 | minTakenDate | DatePicker | Minimum taken date. Photos with an taken date greater than or equal to this value will be returned. 
-| contentType  | Select     | Content Type.1 - for photos only.2 - for screenshots only.3 for 'other' only.4 for photos and screenshots.5 for screenshots and 'other'.6 for photos and 'other'.7 for photos, screenshots, and 'other' (all).
-| privacyFilter| Select     | Return photos only matching a certain privacy level. This only applies when making an authenticated call to view photos you own.1 - public photos. 2 - private photos visible to friends. 3 - private photos visible to family. 4 - private photos visible to friends & family. 5 - completely private photos.
+| contentType  | Select     | Content Type.See more in readme.
+| privacyFilter| Select     | Return photos only matching a certain privacy level. This only applies when making an authenticated call to view photos you own.See more in readme.
 | extras       | List       | List of extra information to fetch for each returned record.
 | perPage      | Number     | Number of items to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is 500.
 | page         | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
@@ -792,7 +792,7 @@ Get a list of public photos for the given user.
 |-----------|------------|----------
 | apiKey    | credentials| ApiKey of the your app.
 | userId    | String     | The NSID of the user who's photos to return.
-| safeSearch   | Select     | Safe search setting.1 - for safe.2 - for moderate.3 - for restricted.
+| safeSearch| Select     | Safe search setting.See more in readme.
 | extras    | List       | List of extra information to fetch for each returned record.
 | perPage   | Number     | Number of items to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is 500.
 | page      | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
@@ -859,12 +859,12 @@ Fetch a list of recent public photos from a users' contacts.
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| ApiKey of the your app.
+| userId     | String     | The NSID of the user to fetch photos for.
 | count      | Number     | Number of photos to return. Defaults to 10, maximum 50. This is only used if single_photo is not passed.
 | justFriends| Select     | Set as true to only show photos from friends and family (excluding regular contacts).
 | singlePhoto| String     | Only fetch one photo (the latest) per contact, instead of all photos in chronological order.
 | includeSelf| Select     | Set to 1 to include photos from the calling user.
 | extras     | List       | List of extra information to fetch for each returned record.
-| userId    | String     | The NSID of the user to fetch photos for.
 
 ## Flickr.getPhotoStreamContexts
 Returns next and previous photos for a photo in a photostream.
@@ -949,11 +949,11 @@ Returns a list of popular photos.
 | Field  | Type       | Description
 |--------|------------|----------
 | apiKey | credentials| ApiKey of the your app.
+| userId | String     | The NSID of the user to get a galleries list for. If none is specified, the calling user is assumed.
 | sort   | Select     | The sort order.Deafults to interesting.
 | extras | List       | List of extra information to fetch for each returned record.
 | perPage| Number     | Number of items to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is 500.
 | page   | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
-| userId | String     | The NSID of the user to fetch the contact list for.
 
 ## Flickr.getRecentPhotos
 Returns a list of the latest public photos uploaded to flickr.
@@ -1071,18 +1071,18 @@ Return a list of photos matching some criteria. Only photos visible to the calli
 | license       | String     | The license id for photos (for possible values see the flickr.photos.licenses.getInfo method). Multiple licenses may be comma-separated.
 | sort          | Select     | The order in which to sort returned photos. Deafults to date-posted-desc (unless you are doing a radial geo query, in which case the default sorting is by ascending distance from the point specified).
 | privacyFilter | Select     | Return photos only matching a certain privacy level.
-| bbox          | List       | The 4 values represent the bottom-left corner of the box and the top-right corner, minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude.Longitude has a range of -180 to 180 , latitude of -90 to 90. Defaults to -180, -90, 180, 90 if not specified. Unlike standard photo queries, geo (or bounding box) queries will only return 250 results per page. Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future).
-| accuracy      | Number     | Recorded accuracy level of the location information. Current range is 1-16.World level is 1. Country is ~3. Region is ~6. City is ~11. Street is ~16.
-| safeSearch   | Select     | Safe search setting.1 - for safe.2 - for moderate.3 - for restricted.
-| contentType   | Select     | Content Type.1 - for photos only. 2 - for screenshots only. 3 - for 'other' only. 4 - for photos and screenshots. 5 - for screenshots and 'other'. 6  - for photos and 'other'. 7 - for photos, screenshots, and 'other' (all).
-| machineTags   | String     | Aside from passing in a fully formed machine tag.World level is 1. Country is ~3. Region is ~6. City is ~11. Street is ~16.
+| bbox          | List       | The 4 values represent the bottom-left corner of the box and the top-right corner, minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude.See more in readme.
+| accuracy      | Number     | Recorded accuracy level of the location information. Current range is 1-16.See more in readme.
+| safeSearch    | Select     | Safe search setting.See more in readme.
+| contentType   | Select     | Content Type.See more in readme.
+| machineTags   | String     | Aside from passing in a fully formed machine tag.See more in readme.
 | machineTagMode| Select     | Either 'any' for an OR combination of tags, or 'all' for an AND combination. Defaults to 'any' if not specified.
 | groupId       | String     | The id of a group who's pool to search. If specified, only matching photos posted to the group's pool will be returned.
 | contacts      | Select     | Search your contacts. Either 'all' or 'ff' for just friends and family. (Experimental)
-| woeId         | String     | A 32-bit identifier that uniquely represents spatial entities.Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future).
-| placeId       | String     | A Flickr place id. (not used if bbox argument is present).Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future). 
+| woeId         | String     | A 32-bit identifier that uniquely represents spatial entities.See more in readme. 
+| placeId       | String     | A Flickr place id. (not used if bbox argument is present).See more in readme. 
 | media         | Select     | Filter results by media type.All (default).
-| hasGeo        | String     | Any photo that has been geotagged, or if the value is `0` any photo that has not been geotagged.Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future).
+| hasGeo        | String     | Any photo that has been geotagged, or if the value is `0` any photo that has not been geotagged.See more in readme. 
 | geoContext    | Select     | Geo context is a numeric value representing the photo's geotagginess beyond latitude and longitude. For example, you may wish to search for photos that were taken `indoors` or `outdoors`. 
 | coordinates   | Map        | A valid longitude and latitude in decimal format, for doing radial geo queries. 
 | radiusUnits   | Select     | The unit of measure when doing radial geo queries. Valid options are `mi` (miles) and `km` (kilometers). The default is `km`.
@@ -1327,12 +1327,12 @@ Sets the geo data (latitude and longitude and, optionally, the accuracy level) f
 |-------------|------------|----------
 | apiKey      | credentials| ApiKey of the your app.
 | apiSecret   | credentials| ApiSecret of the your app.
+| photoId     | String     | The id of the photo to set location data for.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
 | coordinates | Map        | The latitude of the photos to be update whose valid range is -90 to 90.The longitude of the photos to be updated whose valid range is -180 to 180. 
 | accuracy    | Number     | Recorded accuracy level of the photos to be updated. World level is 1, Country is ~3, Region ~6, City ~11, Street ~16. Current range is 1-16. Defaults to 16 if not specified.
 | context     | Select     | Context is a numeric value representing the photo's geotagginess beyond latitude and longitude. For example, you may wish to indicate that a photo was taken `indoors` or `outdoors`. 
-| photoId     | String     | The id of the photo to set location data for.
 
 ## Flickr.setPermissionForGeoDataPhoto
 Set the permission for who may view the geo data associated with a photo.
@@ -1346,7 +1346,7 @@ Set the permission for who may view the geo data associated with a photo.
 | isPublic    | Select     | 1 to set viewing permissions for the photo's location data to public, 0 to set it to private.
 | isFriend    | Select     | 1 to set viewing permissions for the photo's location data to friends, 0 to set it to private.
 | isContact   | Select     | 1 to set viewing permissions for the photo's location data to contacts, 0 to set it to private.
-| isFamily   | Select     | 1 to set viewing permissions for the photo's location data to family, 0 to set it to private.
+| isFamily    | Select     | 1 to set viewing permissions for the photo's location data to family, 0 to set it to private.
 | photoId     | Select     | The id of the photo to get permissions for.
 
 ## Flickr.uploadPhoto
@@ -1368,4 +1368,1448 @@ Upload Photo to Flickr.This method requires authentication with 'write' permissi
 | safetyLevel | Select     | Set to 1 for Safe, 2 for Moderate, or 3 for Restricted. If omitted or an invalid value is passed, will be set to user's default
 | contentType | Select     | Set to 1 for Photo, 2 for Screenshot, or 3 for Other. If omitted , will be set to user's default
 | hidden      | Select     | Set to 1 to keep the photo in global search results, 2 to hide from public searches. If omitted, will be set based to user's default
+
+## Flickr.lookupUser
+Returns a user NSID, given the url to a user's photos or profile.
+
+| Field | Type       | Description
+|-------|------------|----------
+| apiKey| credentials| ApiKey of the your app.
+| url   | String     | The url to the user's profile or photos page.
+
+## Flickr.lookupGroup
+Returns a group NSID, given the url to a group's page or photo pool.
+
+| Field | Type       | Description
+|-------|------------|----------
+| apiKey| credentials| ApiKey of the your app.
+| url   | String     | The url to the group's page or photo pool.
+
+## Flickr.lookupGallery
+Returns gallery info, by url.
+
+| Field | Type       | Description
+|-------|------------|----------
+| apiKey| credentials| ApiKey of the your app.
+| url   | String     | The url to gallery
+
+## Flickr.getUserProfile
+Returns the url to a user's profile.
+
+| Field | Type       | Description
+|-------|------------|----------
+| apiKey| credentials| ApiKey of the your app.
+| userId| String     | The NSID of the user to fetch the url for. If omitted, the calling user is assumed.          
+
+## Flickr.getUserPhotosUrl
+Returns the url to a user's photos.
+
+| Field | Type       | Description
+|-------|------------|----------
+| apiKey| credentials| ApiKey of the your app.
+| userId| String     | The NSID of the user to fetch the url for. If omitted, the calling user is assumed.          
+
+## Flickr.getGroup
+Returns the url to a group's page.
+
+| Field  | Type       | Description
+|--------|------------|----------
+| apiKey | credentials| ApiKey of the your app.
+| groupId| String     | The NSID of the group to fetch the url for.
+
+## Flickr.getTestimonialsBy
+Get approved testimonials written by the given user
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| userId      | String     | ID of the user to get testimonials written by
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of testimonials to return per page. Default is 10, maximum is 50
+
+## Flickr.getTestimonialsAboutBy
+Get the approved testimonial by the currently logged-in user about the given user. Note that at most 1 testimonial will be returned
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| userId      | String     | ID of the user to get testimonials written about
+
+## Flickr.getTestimonialsAbout
+Get approved testimonials about the given user
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| userId      | String     | ID of the user to get testimonials written about
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of testimonials to return per page. Default is 10, maximum is 50
+
+## Flickr.getPendingTestimonialsBy
+Get all pending testimonials written by the given user
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of testimonials to return per page. Default is 10, maximum is 50
+
+## Flickr.getPendingTestimonialsAboutBy
+Get the pending testimonial by the currently logged-in user about the given user. Note that at most 1 testimonial will be returned
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| userId      | String     | ID of the user to get testimonials written about
+
+## Flickr.getPendingTestimonialsAbout
+Get all pending testimonials written about the given user
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of testimonials to return per page. Default is 10, maximum is 50
+
+## Flickr.getAllTestimonialsBy
+Get all testimonials (pending and approved) written by the given user
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of testimonials to return per page. Default is 10, maximum is 50
+
+## Flickr.getAllTestimonialsAboutBy
+Get the testimonial by the currently logged-in user about the given user, regardless of approval status. Note that at most 1 testimonial will be returned
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| userId      | String     | ID of the user to get testimonials written about
+
+## Flickr.getAllTestimonialsAbout
+Get all testimonials (pending and approved) written about the given user
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of testimonials to return per page. Default is 10, maximum is 50
+
+## Flickr.addTestimonial
+Get all testimonials (pending and approved) written about the given user
+
+| Field          | Type       | Description
+|----------------|------------|----------
+| apiKey         | credentials| ApiKey of the your app.
+| apiSecret      | credentials| ApiSecret of the your app.
+| accessToken    | String     | accessToken from the getAccessToken method.
+| accessSecret   | String     | accessSecret from the getAccessToken method.
+| userId         | String     | ID of the user the testimonial is about
+| testimonialText| String     | The text of the testimonial. HTML/BBCode is not accepted
+
+## Flickr.approveTestimonial
+Approve a testimonial that has been written about the currently loggedin user
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| testimonialId| String     | ID of the testimonial to approve
+
+## Flickr.deleteTestimonial
+Delete a testimonial that has been written about the currently loggedin user
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| testimonialId| String     | ID of the testimonial to delete
+
+## Flickr.editTestimonial
+Change the text of a testimonial. The loggedin user must be the author of the existing testimonial. 
+
+| Field          | Type       | Description
+|----------------|------------|----------
+| apiKey         | credentials| ApiKey of the your app.
+| apiSecret      | credentials| ApiSecret of the your app.
+| accessToken    | String     | accessToken from the getAccessToken method.
+| accessSecret   | String     | accessSecret from the getAccessToken method.
+| testimonialId  | String     | ID of the testimonial to edit
+| userId         | String     | ID of the user the testimonial is about
+| testimonialText| String     | The text of the testimonial. HTML/BBCode is not accepted
+
+## Flickr.testEcho
+A testing method which echo's all parameters back in the response.
+
+| Field | Type       | Description
+|-------|------------|----------
+| apiKey| credentials| ApiKey of the your app.
+
+## Flickr.testLogin
+A testing method which checks if the caller is logged in then returns their username.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.testNull
+Null test
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getCollectionDomains
+Get a list of referring domains for a collection
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| collectionId| String     | The id of the collection to get stats for. If not provided, stats for all collections will be returned.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getCollectionReferrers
+Get a list of referrers from a given domain to a collection
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| collectionId| String     | The id of the collection to get stats for. If not provided, stats for all collections will be returned.
+| domain      | String     | he domain to return referrers for. This should be a hostname (eg: "flickr.com") with no protocol or pathname.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getCollectionStats
+Get the number of views on a collection for a given date.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| collectionId| String     | The id of the collection to get stats for. If not provided, stats for all collections will be returned.
+
+## Flickr.getCSVFiles
+Returns a list of URLs for text files containing all your stats data (from November 26th 2007 onwards) for the currently auth'd user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getPhotoDomains
+Get a list of referring domains for a photo
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| photoId     | String     | The id of the photo to get stats for. If not provided, stats for all photos will be returned.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getPhotoReferrers
+Get a list of referrers from a given domain to a photo
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| domain      | String     | he domain to return referrers for. This should be a hostname (eg: "flickr.com") with no protocol or pathname.
+| photoId     | String     | The id of the photo to get stats for. If not provided, stats for all photos will be returned.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getPhotosetDomains
+Get a list of referring domains for a photoset
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| photosetId  | String     | The id of the photoset to get stats for. If not provided, stats for all photosets will be returned.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getPhotosetReferrers
+Get a list of referrers from a given domain to a photoset
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| domain      | String     | The domain to return referrers for. This should be a hostname (eg: "flickr.com") with no protocol or pathname.
+| photosetId  | String     | The id of the photoset to get stats for. If not provided, stats for all photosets will be returned.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getPhotosetStats
+Get the number of views on a photoset for a given date.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| photosetId  | String     | The id of the photoset to get stats for. If not provided, stats for all photosets will be returned.
+
+## Flickr.getUserPhotoStats
+Get the number of views on a photo for a given date.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| photoId     | String     | The id of the photo to get stats for. If not provided, stats for all photos will be returned.
+
+## Flickr.getPhotostreamDomains
+Get a list of referring domains for a photostream
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getPhotostreamReferrers
+Get a list of referrers from a given domain to a user's photostream
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| domain      | String     | The domain to return referrers for. This should be a hostname (eg: "flickr.com") with no protocol or pathname.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getPhotostreamStats
+Get the number of views on a user's photostream for a given date.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+
+## Flickr.getPopularPhotoStats
+List the photos with the most views, comments or favorites
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| sort        | String     | The order in which to sort returned photos. Defaults to views.
+| page        | Number     | Page number. Default is 0
+| perPage     | Number     | Number of items to return per page. Default is 10, maximum is 50
+
+## Flickr.getTotalViews
+Get the overall view counts for an account
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+
+## Flickr.getClusterPhotos
+Returns the first 24 photos for a given tag cluster
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| tag         | String     | The tag that this cluster belongs to.
+| clusterId   | String     | The top three tags for the cluster, separated by dashes (just like the url).
+
+## Flickr.getClusters
+Gives you a list of tag clusters for the given tag.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| tag         | String     | The tag that this cluster belongs to.
+
+## Flickr.getHotList
+Returns a list of hot tags for the given period.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| period      | Select     | The period for which to fetch hot tags. Valid values are day and week (defaults to day).
+| count       | Number     | The number of tags to return. Defaults to 20. Maximum allowed value is 200.
+
+## Flickr.getListPhoto
+Get the tag list for a given photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | The id of the photo to return tags for.
+
+## Flickr.getListUser
+Get the tag list for a given user (or the currently logged in user).
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | The NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.
+
+## Flickr.getListUserPopular
+Get the popular tags for a given user (or the currently logged in user).
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | The NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.
+| count       | Number     | The number of tags to return. Defaults to 20. Maximum allowed value is 200.
+
+## Flickr.getListUserRaw
+Get the raw versions of a given tag (or all tags) for the currently logged-in user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| tag         | String     | The tag you want to retrieve all raw versions for.
+
+## Flickr.getMostFrequentlyUsed
+Returns a list of most frequently used tags for a user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getRelated
+Returns a list of tags 'related' to the given tag, based on clustered usage analysis.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| tag         | String     | The tag you want to retrieve all related tags for.
+
+## Flickr.getMethodInfo
+Returns information for a given flickr API method.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| methodName  | String     | The name of the method to fetch information for.
+
+## Flickr.getMethods
+Returns a list of available flickr API methods.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getSubscriptions
+Returns a list of the subscriptions for the logged-in user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getTopics
+All the different flavours of anteater.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.subscribe
+Subscribe to event
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| topic       | String     | The type of subscription.
+| callback    | String     | The url for the subscription endpoint.
+| verify      | Select     | The verification mode, either sync or async.
+| verifyToken | String     | The verification token to be echoed back to the subscriber during the verification callback
+| leaseSeconds| Number     | Number of seconds for which the subscription will be valid. Legal values are 60 to 86400
+| woeIds      | Number     | A 32-bit integer for a Where on Earth ID. Only valid if topic is geo. 
+| placeIds    | List       | A list of Flickr place IDs. Only valid if topic is geo. 
+| coordinates | Map        | Defines the coordinates for a radial query centered around (lat, lon).
+| radius      | String     | A radius value, in the units defined by radiusUnits. 
+| radiusUnits | Select     | Defines the units for the radius parameter. Only valid if topic is geo. Options are mi and km. Default is km. 
+| accuracy    | Number     | Defines the minimum accuracy required for photos to be included in a subscription. Only valid if topic is geo Legal values are 1-16, default is 1 (i.e. any accuracy level).
+| nsIds       | List       | A list of nsids representing Flickr Commons institutions
+| tags        | List       | A list of strings to be used for tag subscriptions. 
+
+## Flickr.unsubscribe
+Unsibscribe from event
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| topic       | String     | The type of subscription. 
+| callback    | String     | The url for the subscription endpoint (must be the same url as was used when creating the subscription).
+| verify      | Select     | The verification mode, either sync or async.
+| verifyToken | String     | The verification token to be echoed back to the subscriber during the verification callback
+
+## Flickr.getProfile
+Returns specified user's profile info, respecting profile privacy settings
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| userId      | String     | The NSID of the user to fetch the url for. 
+
+## Flickr.getContentType
+Returns the default content type preference for the user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getGeoPerms
+Returns the default privacy level for geographic information attached to the user's photos
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getHidden
+Returns the default hidden preference for the user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getPrivacy
+Returns the default privacy level preference for the user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getSafetyLevel
+Returns the default safety level preference for the user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.findPlace
+Find place by query
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| query       | String     | The query string to use for place ID lookups
+
+## Flickr.findByLatLon
+Returns the default safety level preference for the user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| coordinates | Map        | Defines the coordinates for a radial query centered around (lat, lon).
+| accuracy    | Number     | Recorded accuracy level of the location information. Legal values are 1-16, default is 1 (i.e. any accuracy level).
+
+## Flickr.getChildrenWithPhotosPublicByPlaceId
+Return a list of locations with public photos that are parented by Places ID.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| placeId     | String     | A Flickr Places ID. 
+
+## Flickr.getChildrenWithPhotosPublicByWoeId
+Return a list of locations with public photos that are parented by Woe ID.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| woeId       | String     | A Where On Earth (WOE) ID.
+
+## Flickr.getInfoByPlaceId
+Get informations about a place.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| placeId     | String     | A Flickr Places ID. 
+
+## Flickr.getInfoByWoeId
+Get place info by Woe ID.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| woeId       | String     | A Where On Earth (WOE) ID.
+
+## Flickr.getInfoByUrl
+Lookup information about a place, by its flickr.com/places URL.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| url         | String     | A flickr.com/places URL in the form of /country/region/city. For example: /Canada/Quebec/Montreal
+
+## Flickr.getPlaceTypes
+Fetches a list of available place types for Flickr.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.getShapeHistoryByPlaceId
+Return an historical list of all the shape data generated
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| placeId     | String     | A Flickr Places ID. 
+
+## Flickr.getShapeHistoryByWoeId
+Return an historical list of all the shape data generated
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| woeId       | String     | A Where On Earth (WOE) ID.
+
+## Flickr.getTopPlacesList
+Return the top 100 most geotagged places for a day.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| woeId       | String     | A Where On Earth (WOE) ID.
+| placeId     | String     | A Flickr Places ID. 
+| date        | DatePicker | Stats will be returned for this date. This should be in either be in YYYY-MM-DD
+| placeTypeId | Select     | The numeric ID for a specific place type to cluster photos by.
+
+## Flickr.placesForBoundingBox
+Return all the locations of a matching place type for a bounding box.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| minBBox     | Map        | The bottom-left corner of the box
+| maxBBox     | Map        | The top-right corner of the box
+| placeTypeId | Select     | The numeric ID for a specific place type to cluster photos by.
+| placeType   | Select     | The name of place type to using as the starting point to search for places in a bounding box. 
+
+## Flickr.placesForContactsByPlaceId
+Return a list of the top 100 unique places clustered by a given placetype for a user's contacts.
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| placeTypeId  | Select     | The numeric ID for a specific place type to cluster photos by.
+| placeType    | Select     | The name of place type to using as the starting point to search for places in a bounding box. 
+| placeId      | String     | A Flickr Places ID. 
+| threshold    | Number     | The minimum number of photos that a place type must have to be included. 
+| contacts     | Select     | Search your contacts. Either 'all' or 'ff' for just friends and family. (Default is all)
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.placesForContactsByWoeId
+Return a list of the top 100 unique places clustered by a given placetype for a user's contacts.
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| placeTypeId  | Select     | The numeric ID for a specific place type to cluster photos by.
+| placeType    | Select     | The name of place type to using as the starting point to search for places in a bounding box. 
+| woeId        | String     | Where on Earth Id
+| threshold    | Number     | The minimum number of photos that a place type must have to be included. 
+| contacts     | Select     | Search your contacts. Either 'all' or 'ff' for just friends and family. (Default is all)
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.placesForTagsByPlaceId
+Return a list of the top 100 unique places clustered by a given placetype for set of tags.
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| placeTypeId  | Select     | The numeric ID for a specific place type to cluster photos by.
+| placeId      | String     | A Flickr Places ID. 
+| threshold    | Number     | The minimum number of photos that a place type must have to be included. 
+| tags         | List       | Photos with one or more of the tags listed will be returned. 
+| tagMode      | Select     | Either 'any' for an OR combination of tags, or 'all' for an AND combination. Defaults to 'any' if not specified.
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.placesForTagsByWoeId
+Return a list of the top 100 unique places clustered by a given placetype for set of tags.
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| placeTypeId  | Select     | The numeric ID for a specific place type to cluster photos by.
+| woeId        | String     | Where on Earth ID. 
+| threshold    | Number     | The minimum number of photos that a place type must have to be included. 
+| tags         | List       | Photos with one or more of the tags listed will be returned. 
+| tagMode      | Select     | Either 'any' for an OR combination of tags, or 'all' for an AND combination. Defaults to 'any' if not specified.
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.placesForMachineTagsByPlaceId
+Return a list of the top 100 unique places clustered by a given placetype for set of machine tags.
+
+| Field         | Type       | Description
+|---------------|------------|----------
+| apiKey        | credentials| ApiKey of the your app.
+| apiSecret     | credentials| ApiSecret of the your app.
+| accessToken   | String     | accessToken from the getAccessToken method.
+| accessSecret  | String     | accessSecret from the getAccessToken method.
+| placeTypeId   | Select     | The numeric ID for a specific place type to cluster photos by.
+| placeId       | String     | A Flickr Places ID. 
+| threshold     | Number     | The minimum number of photos that a place type must have to be included. 
+| machineTags   | List       | Photos with one or more of the tags listed will be returned. 
+| machineTagMode| Select     | Either 'any' for an OR combination of tags, or 'all' for an AND combination. Defaults to 'any' if not specified.
+| minUploadDate | DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate | DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate  | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate  | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.placesForMachineTagsByWoeId
+Return a list of the top 100 unique places clustered by a given placetype for set of machine tags.
+
+| Field         | Type       | Description
+|---------------|------------|----------
+| apiKey        | credentials| ApiKey of the your app.
+| apiSecret     | credentials| ApiSecret of the your app.
+| accessToken   | String     | accessToken from the getAccessToken method.
+| accessSecret  | String     | accessSecret from the getAccessToken method.
+| placeTypeId   | Select     | The numeric ID for a specific place type to cluster photos by.
+| woeId         | String     | Where on Earth ID. 
+| threshold     | Number     | The minimum number of photos that a place type must have to be included. 
+| machineTags   | List       | Photos with one or more of the tags listed will be returned. 
+| machineTagMode| Select     | Either 'any' for an OR combination of tags, or 'all' for an AND combination. Defaults to 'any' if not specified.
+| minUploadDate | DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate | DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate  | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate  | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.placesForUserByPlaceId
+Return a list of the top 100 unique places clustered by a given placetype for a user.
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| placeTypeId  | Select     | The numeric ID for a specific place type to cluster photos by.
+| placeType    | Select     | The name of place type to using as the starting point to search for places in a bounding box. 
+| placeId      | String     | A Flickr Places ID. 
+| threshold    | Number     | The minimum number of photos that a place type must have to be included. 
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.placesForUserByWoeId
+Return a list of the top 100 unique places clustered by a given placetype for a user.
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| placeTypeId  | Select     | The numeric ID for a specific place type to cluster photos by.
+| placeType    | Select     | The name of place type to using as the starting point to search for places in a bounding box. 
+| woeId        | String     | Where on Earth Id
+| threshold    | Number     | The minimum number of photos that a place type must have to be included. 
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.resolvePlaceId
+Find Flickr Places information by Place ID.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| placeId     | String     | A Flickr Places ID. 
+
+## Flickr.resolvePlaceURL
+Find Flickr Places information by Place URL.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| placeUrl    | String     | A Flickr Places URL. 
+
+## Flickr.tagsForPlaceByPlaceId
+Return a list of the top 100 unique tags for a Flickr Places
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| placeId      | String     | A Flickr Places ID. 
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.tagsForPlaceByWoeId
+Return a list of the top 100 unique tags for a Where on Earth (WOE) ID
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| woeId        | String     | Where on Earth Id
+| minUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| maxUploadDate| DatePicker | Minimum upload date. This should be in YYYY-MM-DD
+| minTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+| maxTakenDate | DatePicker | Minimum taken date. This should be in YYYY-MM-DD
+
+## Flickr.addComment
+Add a comment to a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | The id of the photoset
+| commentText | String     | Text of the comment
+
+## Flickr.editComment
+Add a comment to a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| commentId   | String     | Id of the comment
+| commentText | String     | Text of the comment
+
+## Flickr.deleteComment
+Delete a comment to a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| commentId   | String     | Id of the comment
+
+## Flickr.getPhotosetComments
+Returns the comments for a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+
+## Flickr.addPhotoToPhotoset
+Add a photo to the end of an existing photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+| photoId     | String     | Id of the photo
+
+## Flickr.createPhotoset
+Create a new photoset for the calling user.
+
+| Field         | Type       | Description
+|---------------|------------|----------
+| apiKey        | credentials| ApiKey of the your app.
+| apiSecret     | credentials| ApiSecret of the your app.
+| accessToken   | String     | accessToken from the getAccessToken method.
+| accessSecret  | String     | accessSecret from the getAccessToken method.
+| title         | String     | Title of the photoset
+| primaryPhotoId| String     | The id of the photo to represent this set. The photo must belong to the calling user.
+| description   | String     | Description of the photoset
+
+## Flickr.deletePhotoset
+Delete a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+
+## Flickr.editPhotosetMeta
+Modify the meta-data for a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+| title       | String     | Title of the photoset
+| description | String     | Description of the photoset
+
+## Flickr.editPhotosetPhotos
+Modify the photos of the photoset.
+
+| Field         | Type       | Description
+|---------------|------------|----------
+| apiKey        | credentials| ApiKey of the your app.
+| apiSecret     | credentials| ApiSecret of the your app.
+| accessToken   | String     | accessToken from the getAccessToken method.
+| accessSecret  | String     | accessSecret from the getAccessToken method.
+| photosetId    | String     | Id of the photoset
+| primaryPhotoId| String     | The id of the photo to represent this set. The photo must belong to the calling user.
+| photoIds      | List       | Photo ids to include in the set
+
+## Flickr.getPhotosetContext
+Returns next and previous photos for a photo in a set.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+| photoId     | String     | The id of the photo to fetch the context for.
+
+## Flickr.getUserPhotosets
+Returns the photosets belonging to the specified user.
+
+| Field             | Type       | Description
+|-------------------|------------|----------
+| apiKey            | credentials| ApiKey of the your app.
+| apiSecret         | credentials| ApiSecret of the your app.
+| accessToken       | String     | accessToken from the getAccessToken method.
+| accessSecret      | String     | accessSecret from the getAccessToken method.
+| userId            | String     | Id of the user
+| page              | Number     | Page number. Default is 0
+| perPage           | Number     | Number of items to return per page. Default is 10, maximum is 50
+| photoIds          | List       | If specified, each returned set will include a list of these photo ids that are present in the set
+| primaryPhotoExtras| List       | Extra information to fetch for the primary photo.
+
+## Flickr.getUserPhotosInPhotoset
+Get the list of photos in a set.
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| apiKey       | credentials| ApiKey of the your app.
+| apiSecret    | credentials| ApiSecret of the your app.
+| accessToken  | String     | accessToken from the getAccessToken method.
+| accessSecret | String     | accessSecret from the getAccessToken method.
+| userId       | String     | Id of the user
+| photosetId   | String     | Id of the photoset
+| page         | Number     | Page number. Default is 0
+| perPage      | Number     | Number of items to return per page. Default is 10, maximum is 50
+| extras       | List       | Extra information to fetch for each returned record
+| privacyFilter| Select     | Return photos only matching a certain privacy level
+| media        | Select     | Filter results by media type. Possible values are all (default), photos or videos
+
+## Flickr.orderSets
+Set the order of photosets for the calling user.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetIds | List       | List of photoset IDs, ordered with the set to show first, first in the list.
+
+## Flickr.removePhotoFromPhotoset
+Remove a photo from a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+| photoId     | String     | Id of the photo
+
+## Flickr.removePhotosFromPhotoset
+Remove several photos from a photoset.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+| photoIds    | List       | Photo ids to remove from the set
+
+## Flickr.reorderPhotosInPhotoset
+List of photo ids. Photos that are not in the list will keep their original order
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+| photoIds    | List       | Photo ids to remove from the set
+
+## Flickr.setPrimaryPhoto
+Set photoset primary photo
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photosetId  | String     | Id of the photoset
+| photoId     | String     | Id of the photo
+
+## Flickr.checkUploadTickets
+Checks the status of one or more asynchronous photo upload tickets.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| tickets     | List       | List of ticket ids
+
+## Flickr.rotatePhoto
+Rotate a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| degrees     | Select     | Degrees to rotate
+| photoId     | String     | Id of the photo
+
+## Flickr.approveSuggestion
+Approve a suggestion for a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| suggestionId| String     | Id of the suggestion
+
+## Flickr.getSuggenstionsList
+Return a list of suggestions for a user that are pending approval.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| statusId    | Select     | Only show suggestions with a given status.
+| photoId     | String     | Id of the photo
+
+## Flickr.rejectSuggestion
+Reject a suggestion for a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| suggestionId| String     | Id of the suggestion
+
+## Flickr.removeSuggestion
+Remove a suggestion for a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| suggestionId| String     | Id of the suggestion
+
+## Flickr.suggestLocation
+Suggest a geotagged location for a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| coordinates | Map        | Defines the coordinates for a radial query centered around (lat, lon).
+| accuracy    | Number     | Defines the accuracy
+| woeId       | Number     | A 32-bit integer for a Where on Earth ID. 
+| placeId     | String     | A Flickr Places ID. 
+| note        | String     | A short note or history to include with the suggestion.
+
+## Flickr.addPersonToPhoto
+Add a person to a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| userId      | String     | Id of the user
+| personX     | Number     | The left-most pixel co-ordinate of the box around the person.
+| personY     | Number     | The top-most pixel co-ordinate of the box around the person.
+| personW     | Number     | The width (in pixels) of the box around the person.
+| personH     | Number     | The height (in pixels) of the box around the person.
+
+## Flickr.deletePersonFromPhoto
+Delete a person from a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| userId      | String     | Id of the user
+
+## Flickr.deletePersonCoordinatesFromPhoto
+Remove the bounding box from a person in a photo
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| userId      | String     | Id of the user
+
+## Flickr.addPersonCoordinatesOnPhoto
+Edit the bounding box of an existing person on a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| userId      | String     | Id of the user
+| personX     | Number     | The left-most pixel co-ordinate of the box around the person.
+| personY     | Number     | The top-most pixel co-ordinate of the box around the person.
+| personW     | Number     | The width (in pixels) of the box around the person.
+| personH     | Number     | The height (in pixels) of the box around the person.
+
+## Flickr.getPhotoPersons
+Get a list of people in a given photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+
+## Flickr.addNoteToPhoto
+Add a note to a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| noteText    | String     | Text of the note
+| noteX       | Number     | The left-most pixel co-ordinate of the box around the note.
+| noteY       | Number     | The top-most pixel co-ordinate of the box around the note.
+| noteW       | Number     | The width (in pixels) of the box around the note.
+| noteH       | Number     | The height (in pixels) of the box around the note.
+
+## Flickr.editNoteOnPhoto
+Edit a note on a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| noteId      | String     | Id of the note
+| noteText    | String     | Text of the note
+| noteX       | Number     | The left-most pixel co-ordinate of the box around the note.
+| noteY       | Number     | The top-most pixel co-ordinate of the box around the note.
+| noteW       | Number     | The width (in pixels) of the box around the note.
+| noteH       | Number     | The height (in pixels) of the box around the note.
+
+## Flickr.deleteNoteFromPhoto
+Delete a note from a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| noteId      | String     | Id of the note
+
+## Flickr.getPhotoLicenses
+Fetches a list of available photo licenses for Flickr.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+
+## Flickr.setPhotoLicense
+Sets the license for a photo.
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| licenseId   | String     | Id of the license
+
+## Flickr.replacePhoto
+Replace photo
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| apiKey      | credentials| ApiKey of the your app.
+| apiSecret   | credentials| ApiSecret of the your app.
+| accessToken | String     | accessToken from the getAccessToken method.
+| accessSecret| String     | accessSecret from the getAccessToken method.
+| photoId     | String     | Id of the photo
+| photo       | File       | New photo
 
