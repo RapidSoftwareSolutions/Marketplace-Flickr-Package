@@ -21,6 +21,7 @@ $app->post('/api/Flickr/searchPhotos', function ($request, $response) {
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
     
+    if(isset($data['license'])) { $data['license'] = \Models\Params::toString($data['license'], ','); }
     if(isset($data['tags'])) { $data['tags'] = \Models\Params::toString($data['tags'], ','); }
     if(isset($data['min_upload_date'])) { $data['min_upload_date'] = \Models\Params::toFormat($data['min_upload_date'], 'unixtime'); }
     if(isset($data['max_upload_date'])) { $data['max_upload_date'] = \Models\Params::toFormat($data['max_upload_date'], 'unixtime'); }

@@ -4,7 +4,7 @@ $app->post('/api/Flickr/addPhotoToBlog', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','blogId','photoId','title','description']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','blogId','photoId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/Flickr/addPhotoToBlog', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','blogId'=>'blog_id','photoId'=>'photo_id','title'=>'title','description'=>'description'];
+    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','blogId'=>'blog_id','photoId'=>'photo_id'];
     $optionalParams = ['blogPassword'=>'blog_password','service'=>'service'];
     $bodyParams = [
-       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','blog_id','photo_id','title','description','blog_password','service','nojsoncallback']
+       'query' => ['oauth_token','title'=>'title','description'=>'description','oauth_secret','api_secret','api_key','method','format','blog_id','photo_id','title','description','blog_password','service','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

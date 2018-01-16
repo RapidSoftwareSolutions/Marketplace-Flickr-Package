@@ -1,18 +1,18 @@
 <?php
 $routes = [
     'metadata',
-    'getRequestToken', //1
-    'getAccessToken', //1 
-    'checkToken', //1
-    'getUserComments', //1
-    'getUserPhotos', //1
-    'getBlogList', //1
-    'getBlogServices', //1
-    'addPhotoToBlog', //1
-    'getCamerasBrandModels', //1
-    'getCamerasBrands', //1
-    'getCollectionInfo', //1
-    'getCollectionsTree', //1
+    'getRequestToken',
+    'getAccessToken',
+    'checkToken',
+    'getUserComments',
+    'getUserPhotos',
+    'getBlogList',
+    'getBlogServices',
+    'addPhotoToBlog',
+    'getCamerasBrandModels',
+    'getCamerasBrands',
+    'getCollectionInfo',
+    'getCollectionsTree',
     'getCommonsInstitutions',
     'getContactsList',
     'getContactsListRecentlyUploaded',
@@ -34,6 +34,7 @@ $routes = [
     'removePhotoFromGallery',
     'browseGroup',
     'getGroupInfo',
+    'getGroupInfoByAlias',
     'joinGroup',
     'createRequestJoinGroup',
     'leaveGroup',

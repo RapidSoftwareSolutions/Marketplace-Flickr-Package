@@ -4,7 +4,7 @@ $app->post('/api/Flickr/setPermissionForGeoDataPhoto', function ($request, $resp
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','isPublic','isFriend','isContact','is_family','photoId']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','isPublic','isFriend','isContact','isFamily','photoId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,7 +12,7 @@ $app->post('/api/Flickr/setPermissionForGeoDataPhoto', function ($request, $resp
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','isPublic'=>'is_public','isFriend'=>'is_friend','isContact'=>'is_contact','is_family'=>'is_family','photoId'=>'photo_id'];
+    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','isPublic'=>'is_public','isFriend'=>'is_friend','isContact'=>'is_contact','isFamily'=>'is_family','photoId'=>'photo_id'];
     $optionalParams = [];
     $bodyParams = [
        'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','nojsoncallback','photo_id','is_family','is_friend','is_contact','is_public']

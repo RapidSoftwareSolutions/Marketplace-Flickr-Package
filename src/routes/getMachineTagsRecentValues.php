@@ -26,8 +26,11 @@ $app->post('/api/Flickr/getMachineTagsRecentValues', function ($request, $respon
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.machinetags.getRecentValues';
-$data['format'] = 'json';
-$data['nojsoncallback'] = '1';
+    $data['format'] = 'json';
+    $data['nojsoncallback'] = '1';
+
+    if(isset($data['added_since'])) { $data['added_since'] = \Models\Params::toFormat($data['added_since'], 'unixtime'); }
+
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];

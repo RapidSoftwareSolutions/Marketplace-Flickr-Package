@@ -27,8 +27,12 @@ $app->post('/api/Flickr/getFavoritePublicPhotosList', function ($request, $respo
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.favorites.getPublicList';
-$data['format'] = 'json';
-$data['nojsoncallback'] = '1';
+    $data['format'] = 'json';
+    $data['nojsoncallback'] = '1';
+
+    if(isset($data['min_fave_date'])) { $data['min_fave_date'] = \Models\Params::toFormat($data['min_fave_date'], 'unixtime'); }
+    if(isset($data['max_fave_date'])) { $data['max_fave_date'] = \Models\Params::toFormat($data['max_fave_date'], 'unixtime'); }
+
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];

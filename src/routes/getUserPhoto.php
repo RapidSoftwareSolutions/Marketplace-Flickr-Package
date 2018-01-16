@@ -13,9 +13,9 @@ $app->post('/api/Flickr/getUserPhoto', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'api_key','userId'=>'user_id'];
-    $optionalParams = ['safeSearch'=>'safe_search','minUploadDate'=>'min_upload_date','maxUploadDate'=>'max_upload_date','minTakenDate'=>'min_taken_date','contentType'=>'content_type','privacyFilter'=>'privacy_filter','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
+    $optionalParams = ['safeSearch'=>'safe_search','minUploadDate'=>'min_upload_date','maxUploadDate'=>'max_upload_date','maxUploadDate'=>'max_upload_date','minTakenDate'=>'min_taken_date','contentType'=>'content_type','privacyFilter'=>'privacy_filter','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
     $bodyParams = [
-       'query' => ['api_key','method','format','nojsoncallback','page','per_page','extras','privacy_filter','content_type','max_taken_date','min_taken_date','max_upload_date','min_upload_date','safe_search','user_id']
+       'query' => ['api_key','method','format','nojsoncallback','page','per_page','extras','privacy_filter','content_type','max_upload_date','max_taken_date','min_taken_date','max_upload_date','min_upload_date','safe_search','user_id']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
@@ -24,6 +24,8 @@ $app->post('/api/Flickr/getUserPhoto', function ($request, $response) {
     if(isset($data['min_upload_date'])) { $data['min_upload_date'] = \Models\Params::toFormat($data['min_upload_date'], 'unixtime'); }
     if(isset($data['max_upload_date'])) { $data['max_upload_date'] = \Models\Params::toFormat($data['max_upload_date'], 'unixtime'); }
     if(isset($data['min_taken_date'])) { $data['min_taken_date'] = \Models\Params::toFormat($data['min_taken_date'], 'unixtime'); }
+    if(isset($data['max_taken_date'])) { $data['max_taken_date'] = \Models\Params::toFormat($data['max_taken_date'], 'unixtime'); }
+
     if(isset($data['extras'])) { $data['extras'] = \Models\Params::toString($data['extras'], ','); }
 
     $client = $this->httpClient;

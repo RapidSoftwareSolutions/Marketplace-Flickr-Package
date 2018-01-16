@@ -127,7 +127,7 @@ Retrieve all the models for a given camera brand.
 | apiSecret   | credentials| ApiSecret of the your app.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
-| brand       | String     | The id of the blog to post to.
+| brand       | String     | The ID of the requested brand (as returned from flickr.cameras.getBrands).
 
 ## Flickr.getCamerasBrands
 Returns all the brands of cameras that Flickr knows about.
@@ -208,7 +208,6 @@ Get suggestions for tagging people in photos based on the calling user's contact
 | apiSecret   | credentials| ApiSecret of the your app.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
-| filter      | Select     | Limit the result set to all contacts or only those who are friends or family.ff - family and friends,all - all contacts.
 | perPage     | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page        | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
 
@@ -267,7 +266,7 @@ Removes a photo from a user's favorites list.This method requires authentication
 | apiSecret   | credentials| ApiSecret of the your app.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
-| photoId     | String     | The id of the photo to add to the user's favorites.
+| photoId     | String     | The id of the photo to remove from the user's favorites.
 
 ## Flickr.addPhotoToGallery
 Add a photo to a gallery.This method requires authentication with 'write' permission.
@@ -390,6 +389,15 @@ Browse the group category tree, finding groups and sub-categories.
 | catId       | String     | The category id to fetch a list of groups and sub-categories for. If not specified, it defaults to zero, the root of the category tree.
 
 ## Flickr.getGroupInfo
+Get information about a group by path alias of the group.
+
+| Field         | Type       | Description
+|---------------|------------|----------
+| apiKey        | credentials| ApiKey of the your app.
+| groupPathAlias| String     | The path alias of the group. One of this or the group_id param is required
+| lang          | Select     | The language of the group name and description to fetch. If the language is not found, the primary language of the group will be returned.
+
+## Flickr.getGroupInfoByAlias
 Get information about a group.
 
 | Field         | Type       | Description
@@ -397,7 +405,8 @@ Get information about a group.
 | apiKey        | credentials| ApiKey of the your app.
 | groupId       | String     | The NSID of the group to fetch information for.
 | groupPathAlias| String     | The path alias of the group. One of this or the group_id param is required
-| lang          | Select     | lang
+| lang          | Select     | The language of the group name and description to fetch. If the language is not found, the primary language of the group will be returned.
+
 
 ## Flickr.joinGroup
 Join a public group as a member.
@@ -486,7 +495,7 @@ Edit a topic reply.This method requires authentication with 'write' permission.
 | accessSecret| String     | accessSecret from the getAccessToken method.
 | groupId     | String     | Pass in the group id to where the topic belongs. Can be NSID or group alias. Making this parameter optional for legacy reasons, but it is highly recommended to pass this in to get faster performance.
 | topicId     | String     | The ID of the topic the post is in.
-| replyId     | String     | The ID of the reply to delete.
+| replyId     | String     | The ID of the reply post to edit.
 | message     | String     | The message to edit the post with.
 
 ## Flickr.getGroupTopicReplyInfo
@@ -560,7 +569,7 @@ Get a list of the members of a group. The call must be signed on behalf of a Fli
 | groupId     | String     | Pass in the group id to where the topic belongs. Can be NSID or group alias. Making this parameter optional for legacy reasons, but it is highly recommended to pass this in to get faster performance.
 | perPage     | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page        | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
-| memberTypes | List       | List of member types.By default returns all types.
+| memberTypes | List       | List of member types.By default returns all types.2: member. 3: moderator. 4: admin.
 
 ## Flickr.addPhotoToGroupPool
 Add a photo to a group's pool.This method requires authentication with 'write' permission.
@@ -658,7 +667,7 @@ Return a list of unique predicates, optionally limited by a given namespace.
 | Field    | Type       | Description
 |----------|------------|----------
 | apiKey   | credentials| ApiKey of the your app.
-| namespace| Number     | Limit the list of pairs returned to those that have the following namespace.
+| namespace| Number     | Limit the list of predicates returned to those that have the following namespace.
 | perPage  | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page     | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
 
@@ -684,14 +693,14 @@ Return a list of unique values for a namespace and predicate.
 | predicate| String     | A predicate that all values should be restricted to.
 
 ## Flickr.getPandaList
-Return a list of Flickr pandas, from whom you can request photos using the flickr.panda.getPhotos API method.More information about the pandas can be found in readme.
+Return a list of Flickr pandas, from whom you can request photos using the flickr.panda.getPhotos API method.More information about the pandas can be found [here](http://code.flickr.com/blog/2009/03/03/panda-tuesday-the-history-of-the-panda-new-apis-explore-and-you/).
 
 | Field | Type       | Description
 |-------|------------|----------
 | apiKey| credentials| ApiKey of the your app.
 
 ## Flickr.getPandaPhotos
-Ask the Flickr Pandas for a list of recent public (and `safe`) photos. .More information about the pandas can be found in readme.
+Ask the Flickr Pandas for a list of recent public (and `safe`) photos. .More information about the pandas can be found [here](http://code.flickr.com/blog/2009/03/03/panda-tuesday-the-history-of-the-panda-new-apis-explore-and-you/).
 
 | Field    | Type       | Description
 |----------|------------|----------
@@ -754,12 +763,13 @@ Return photos from the given user's photostream. Only photos visible to the call
 |--------------|------------|----------
 | apiKey       | credentials| ApiKey of the your app.
 | userId       | String     | The NSID of the user who's photos to return. A value of `me` will return the calling user's photos.
-| safeSearch   | Select     | Safe search setting.See more in readme.
+| safeSearch   | Select     | Safe search setting.1 for safe. 2 for moderate. 3 for restricted.
 | minUploadDate| DatePicker | Minimum upload date. Photos with an upload date greater than or equal to this value will be returned. 
 | maxUploadDate| DatePicker | Maximum upload date. Photos with an upload date less than or equal to this value will be returned. 
 | minTakenDate | DatePicker | Minimum taken date. Photos with an taken date greater than or equal to this value will be returned. 
-| contentType  | Select     | Content Type.See more in readme.
-| privacyFilter| Select     | Return photos only matching a certain privacy level. This only applies when making an authenticated call to view photos you own.See more in readme.
+| maxTakenDate | DatePicker | Maximum taken date. Photos with an taken date less than or equal to this value will be returned. 
+| contentType  | Select     | Content Type.1 for photos only. 2 for screenshots only. 3 for 'other' only. 4 for photos and screenshots. 5 for screenshots and 'other'. 6 for photos and 'other'. 7 for photos, screenshots, and 'other' (all).
+| privacyFilter| Select     | Return photos only matching a certain privacy level. This only applies when making an authenticated call to view photos you own.1 public photos. 2 private photos visible to friends .3 private photos visible to family. 4 private photos visible to friends & family .5 completely private photos.
 | extras       | List       | List of extra information to fetch for each returned record.
 | perPage      | Number     | Number of items to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is 500.
 | page         | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
@@ -792,7 +802,7 @@ Get a list of public photos for the given user.
 |-----------|------------|----------
 | apiKey    | credentials| ApiKey of the your app.
 | userId    | String     | The NSID of the user who's photos to return.
-| safeSearch| Select     | Safe search setting.See more in readme.
+| safeSearch| Select     | Safe search setting.1 for safe. 2 for moderate. 3 for restricted.
 | extras    | List       | List of extra information to fetch for each returned record.
 | perPage   | Number     | Number of items to return per page. If this argument is omitted, it defaults to 100. The maximum allowed value is 500.
 | page      | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
@@ -1004,6 +1014,7 @@ Returns a list of your geo-tagged photos.
 | minUploadDate| DatePicker | Minimum upload date. Photos with an upload date greater than or equal to this value will be returned. 
 | maxUploadDate| DatePicker | Maximum upload date. Photos with an upload date less than or equal to this value will be returned. 
 | maxTakenDate | DatePicker | Maximum taken date. Photos with an taken date less than or equal to this value will be returned. 
+| minTakenDate | DatePicker | Minimum taken date. Photos with an taken date greater than or equal to this value will be returned. 
 | privacyFilter| Select     | Return photos only matching a certain privacy level.
 | media        | Select     | Filter results by media type.All (default).
 | extras       | List       | List of extra information to fetch for each returned record.
@@ -1068,21 +1079,21 @@ Return a list of photos matching some criteria. Only photos visible to the calli
 | maxUploadDate | DatePicker | Maximum upload date. Photos with an upload date less than or equal to this value will be returned. 
 | minTakenDate  | DatePicker | Minimum taken date. Photos with an taken date greater than or equal to this value will be returned. 
 | maxTakenDate  | DatePicker | Maximum taken date. Photos with an taken date less than or equal to this value will be returned. 
-| license       | String     | The license id for photos (for possible values see the flickr.photos.licenses.getInfo method). Multiple licenses may be comma-separated.
+| license       | List     | The license id for photos (for possible values see the flickr.photos.licenses.getInfo method). Multiple licenses may be comma-separated.
 | sort          | Select     | The order in which to sort returned photos. Deafults to date-posted-desc (unless you are doing a radial geo query, in which case the default sorting is by ascending distance from the point specified).
 | privacyFilter | Select     | Return photos only matching a certain privacy level.
-| bbox          | List       | The 4 values represent the bottom-left corner of the box and the top-right corner, minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude.See more in readme.
-| accuracy      | Number     | Recorded accuracy level of the location information. Current range is 1-16.See more in readme.
-| safeSearch    | Select     | Safe search setting.See more in readme.
-| contentType   | Select     | Content Type.See more in readme.
-| machineTags   | String     | Aside from passing in a fully formed machine tag.See more in readme.
+| bbox          | List       | The 4 values represent the bottom-left corner of the box and the top-right corner, minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude.Longitude has a range of -180 to 180 , latitude of -90 to 90. Defaults to -180, -90, 180, 90 if not specified. Unlike standard photo queries, geo (or bounding box) queries will only return 250 results per page. Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future).
+| accuracy      | Number     | Recorded accuracy level of the location information. Current range is 1-16.World level is 1. Country is ~3. Region is ~6. City is ~11. Street is ~16.
+| safeSearch   | Select     | Safe search setting.1 - for safe.2 - for moderate.3 - for restricted.
+| contentType   | Select     | Content Type.1 - for photos only. 2 - for screenshots only. 3 - for 'other' only. 4 - for photos and screenshots. 5 - for screenshots and 'other'. 6  - for photos and 'other'. 7 - for photos, screenshots, and 'other' (all).
+| machineTags   | String     | Aside from passing in a fully formed machine tag.World level is 1. Country is ~3. Region is ~6. City is ~11. Street is ~16.
 | machineTagMode| Select     | Either 'any' for an OR combination of tags, or 'all' for an AND combination. Defaults to 'any' if not specified.
 | groupId       | String     | The id of a group who's pool to search. If specified, only matching photos posted to the group's pool will be returned.
 | contacts      | Select     | Search your contacts. Either 'all' or 'ff' for just friends and family. (Experimental)
-| woeId         | String     | A 32-bit identifier that uniquely represents spatial entities.See more in readme. 
-| placeId       | String     | A Flickr place id. (not used if bbox argument is present).See more in readme. 
+| woeId         | String     | A 32-bit identifier that uniquely represents spatial entities.Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future).
+| placeId       | String     | A Flickr place id. (not used if bbox argument is present).Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future). 
 | media         | Select     | Filter results by media type.All (default).
-| hasGeo        | String     | Any photo that has been geotagged, or if the value is `0` any photo that has not been geotagged.See more in readme. 
+| hasGeo        | String     | Any photo that has been geotagged, or if the value is `0` any photo that has not been geotagged.Geo queries require some sort of limiting agent in order to prevent the database from crying. This is basically like the check against "parameterless searches" for queries without a geo component. A tag, for instance, is considered a limiting agent as are user defined min_date_taken and min_date_upload parameters — If no limiting factor is passed we return only photos added in the last 12 hours (though we may extend the limit in the future).
 | geoContext    | Select     | Geo context is a numeric value representing the photo's geotagginess beyond latitude and longitude. For example, you may wish to search for photos that were taken `indoors` or `outdoors`. 
 | coordinates   | Map        | A valid longitude and latitude in decimal format, for doing radial geo queries. 
 | radiusUnits   | Select     | The unit of measure when doing radial geo queries. Valid options are `mi` (miles) and `km` (kilometers). The default is `km`.
@@ -1118,7 +1129,6 @@ Set one or both of the dates for a photo.
 | photoId             | String     | The id of the photo to edit dates for.
 | datePosted          | DatePicker | The date the photo was uploaded to flickr
 | dateTaken           | DatePicker | The date the photo was taken.
-| dateTakenGranularity| DatePicker | The granularity of the date the photo was taken
 
 ## Flickr.setMetaInformationForPhoto
 Set the meta information for a photo.
@@ -1269,7 +1279,6 @@ Get the geo data (latitude and longitude and the accuracy level) for a photo.
 |--------|------------|----------
 | apiKey | credentials| ApiKey of the your app.
 | photoId| String     | The id of the photo you want to retrieve location data for.
-| extras | List       | List of extra information to fetch for each returned record.
 
 ## Flickr.getPermissionsForPhotoGeoData
 Get permissions for who may view geo data for a photo.

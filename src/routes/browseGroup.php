@@ -15,7 +15,7 @@ $app->post('/api/Flickr/browseGroup', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret'];
     $optionalParams = ['catId'=>'cat_id'];
     $bodyParams = [
-       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','catId','nojsoncallback']
+       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','cat_id','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

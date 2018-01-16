@@ -13,9 +13,9 @@ $app->post('/api/Flickr/getGeoTaggedPhotos', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret'];
-    $optionalParams = ['minUploadDate'=>'min_upload_date','maxUploadDate'=>'max_upload_date','maxTakenDate'=>'max_taken_date','privacyFilter'=>'privacy_filter','media'=>'media','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
+    $optionalParams = ['minUploadDate'=>'min_upload_date','maxUploadDate'=>'max_upload_date','minTakenDate'=>'min_taken_date','maxTakenDate'=>'max_taken_date','privacyFilter'=>'privacy_filter','media'=>'media','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
     $bodyParams = [
-       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','nojsoncallback','min_upload_date','max_upload_date','min_taken_date','max_taken_date','privacy_filter','media','extras','page','per_page']
+       'query' => ['min_taken_date','oauth_token','oauth_secret','api_secret','api_key','method','format','nojsoncallback','min_upload_date','max_upload_date','min_taken_date','max_taken_date','privacy_filter','media','extras','page','per_page']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

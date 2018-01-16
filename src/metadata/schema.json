@@ -681,7 +681,7 @@
                     "name": "title",
                     "type": "String",
                     "info": "The blog post title.",
-                    "required": true,
+                    "required": false,
                     "vendorSchema": {
                         "name": "title"
                     }
@@ -690,7 +690,7 @@
                     "name": "description",
                     "type": "String",
                     "info": "The blog post body.",
-                    "required": true,
+                    "required": false,
                     "vendorSchema": {
                         "name": "description"
                     }
@@ -798,7 +798,7 @@
                 {
                     "name": "brand",
                     "type": "String",
-                    "info": "The id of the blog to post to.",
+                    "info": "The ID of the requested brand (as returned from flickr.cameras.getBrands).",
                     "required": true,
                     "vendorSchema": {
                         "name": "brand"
@@ -1002,7 +1002,7 @@
                     "name": "userId",
                     "type": "String",
                     "info": "The ID of the account to fetch the collection tree for. Deafults to the calling user.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "user_id"
                     }
@@ -1258,6 +1258,16 @@
                     }
                 },
                 {
+                    "name": "dateLastupload",
+                    "type": "DatePicker",
+                    "info": "Limits the resultset to contacts that have uploaded photos since this date.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "date_lastupload",
+                        "format": "toFormat:{unixtime}"
+                    }
+                },
+                {
                     "name": "filter",
                     "type": "Select",
                     "options": [
@@ -1268,16 +1278,6 @@
                     "required": false,
                     "vendorSchema": {
                         "name": "filter"
-                    }
-                },
-                {
-                    "name": "dateLastupload",
-                    "type": "DatePicker",
-                    "info": "Limits the resultset to contacts that have uploaded photos since this date.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "date_lastupload",
-                        "format": "toFormat:{unixtime}"
                     }
                 }
             ],
@@ -1434,19 +1434,6 @@
                     "required": true,
                     "vendorSchema": {
                         "name": "oauth_secret"
-                    }
-                },
-                {
-                    "name": "filter",
-                    "type": "Select",
-                    "options": [
-                        "ff",
-                        "all"
-                    ],
-                    "info": "Limit the result set to all contacts or only those who are friends or family.ff - family and friends,all - all contacts.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "filter"
                     }
                 },
                 {
@@ -1677,7 +1664,7 @@
                     "name": "userId",
                     "type": "String",
                     "info": "The NSID of the user to fetch the favorites list for. If this argument is omitted, the favorites list for the calling user is returned.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "user_id"
                     }
@@ -1987,7 +1974,7 @@
                 {
                     "name": "photoId",
                     "type": "String",
-                    "info": "The id of the photo to add to the user's favorites.",
+                    "info": "The id of the photo to remove from the user's favorites.",
                     "required": true,
                     "vendorSchema": {
                         "name": "photo_id"
@@ -2201,7 +2188,7 @@
                     "name": "description",
                     "type": "String",
                     "info": "A short description for the gallery.",
-                    "required": true,
+                    "required": false,
                     "vendorSchema": {
                         "name": "description"
                     }
@@ -3063,10 +3050,79 @@
                     }
                 },
                 {
+                    "name": "lang",
+                    "type": "Select",
+                    "options": [
+                        "de-de",
+                        "en-us",
+                        "es-us",
+                        "fr-fr",
+                        "fr-fr",
+                        "it-it",
+                        "ko-kr",
+                        "pt-br",
+                        "zh-hk"
+                    ],
+                    "info": "The language of the group name and description to fetch. If the language is not found, the primary language of the group will be returned.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "lang"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.flickr.com\/services\/rest",
+                "method": "get",
+                "vendorFieldsStructure": [
+                    {
+                        "method": "flickr.groups.getInfo",
+                        "format": "json",
+                        "nojsoncallback": "1"
+                    }
+                ],
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "api_key",
+                            "method",
+                            "groupId",
+                            "groupPathAlias",
+                            "lang",
+                            "nojsoncallback"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getGroupInfoByAlias",
+            "description": "Get information about a group by path alias of the group.",
+            "args": [
+                {
+                    "name": "apiKey",
+                    "type": "credentials",
+                    "info": "ApiKey of the your app.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "api_key"
+                    }
+                },
+                {
                     "name": "groupPathAlias",
                     "type": "String",
                     "info": "The path alias of the group. One of this or the group_id param is required",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "group_path_alias"
                     }
@@ -3085,7 +3141,7 @@
                         "pt-br",
                         "zh-hk"
                     ],
-                    "info": "lang",
+                    "info": "The language of the group name and description to fetch. If the language is not found, the primary language of the group will be returned.",
                     "required": false,
                     "vendorSchema": {
                         "name": "lang"
@@ -3811,7 +3867,7 @@
                 {
                     "name": "replyId",
                     "type": "String",
-                    "info": "The ID of the reply to delete.",
+                    "info": "The ID of the reply post to edit.",
                     "required": true,
                     "vendorSchema": {
                         "name": "reply_id"
@@ -4416,13 +4472,13 @@
                         "name": "singleMemberType",
                         "type": "Select",
                         "options": [
-                            "member",
-                            "moderator",
-                            "admin"
+                            "2",
+                            "3",
+                            "4"
                         ],
                         "info": "Single extra name."
                     },
-                    "info": "List of member types.By default returns all types.",
+                    "info": "List of member types.By default returns all types.2: member.3: moderator.4: admin",
                     "required": false,
                     "vendorSchema": {
                         "name": "membertypes",
@@ -5099,7 +5155,7 @@
                 },
                 {
                     "name": "predicate",
-                    "type": "Number",
+                    "type": "String",
                     "info": "Limit the list of namespaces returned to those that have the following predicate.",
                     "required": false,
                     "vendorSchema": {
@@ -5185,7 +5241,7 @@
                 },
                 {
                     "name": "predicate",
-                    "type": "Number",
+                    "type": "String",
                     "info": "Limit the list of namespaces returned to those that have the following predicate.",
                     "required": false,
                     "vendorSchema": {
@@ -5263,8 +5319,8 @@
                 },
                 {
                     "name": "namespace",
-                    "type": "Number",
-                    "info": "Limit the list of pairs returned to those that have the following namespace.",
+                    "type": "String",
+                    "info": "Limit the list of predicates returned to those that have the following namespace.",
                     "required": false,
                     "vendorSchema": {
                         "name": "namespace"
@@ -6084,6 +6140,16 @@
                     }
                 },
                 {
+                    "name": "maxTakenDate",
+                    "type": "DatePicker",
+                    "info": "Maximum taken date. Photos with an taken date less than or equal to this value will be returned. ",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "max_taken_date",
+                        "format": "toFormat:{unixtime}"
+                    }
+                },
+                {
                     "name": "contentType",
                     "type": "Select",
                     "options": [
@@ -6264,6 +6330,7 @@
                             "license",
                             "date_upload",
                             "date_taken",
+                            "date_person_added",
                             "owner_name",
                             "icon_server",
                             "original_format",
@@ -7811,7 +7878,7 @@
                     "name": "photoId",
                     "type": "String",
                     "info": "The id of the photo to get permissions for.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "photo_id"
                     }
@@ -8440,6 +8507,16 @@
                     }
                 },
                 {
+                    "name": "minTakenDate",
+                    "type": "DatePicker",
+                    "info": "Minimum taken date. Photos with an taken date greater than or equal to this value will be returned. ",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "min_taken_date",
+                        "format": "toFormat:{unixtime}"
+                    }
+                },
+                {
                     "name": "privacyFilter",
                     "type": "Select",
                     "options": [
@@ -8835,7 +8912,7 @@
                     "name": "minDate",
                     "type": "DatePicker",
                     "info": "A Unix timestamp or any English textual datetime description indicating the date from which modifications should be compared.",
-                    "required": false,
+                    "required": true,
                     "vendorSchema": {
                         "name": "min_date",
                         "format": "toFormat:{unixtime}"
@@ -9130,7 +9207,12 @@
                 },
                 {
                     "name": "license",
-                    "type": "String",
+                    "type": "List",
+                    "structure":{
+                        "name":"licenseId",
+                        "type":"String",
+                        "info":"Single license id."
+                    },
                     "info": "The license id for photos (for possible values see the flickr.photos.licenses.getInfo method). Multiple licenses may be comma-separated.",
                     "required": false,
                     "vendorSchema": {
@@ -9689,15 +9771,6 @@
                     "required": false,
                     "vendorSchema": {
                         "name": "date_taken"
-                    }
-                },
-                {
-                    "name": "dateTakenGranularity",
-                    "type": "DatePicker",
-                    "info": "The granularity of the date the photo was taken",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "date_taken_granularity"
                     }
                 }
             ],
@@ -11011,48 +11084,6 @@
                     "vendorSchema": {
                         "name": "photo_id"
                     }
-                },
-                {
-                    "name": "extras",
-                    "type": "List",
-                    "structure": {
-                        "name": "extraInformation",
-                        "type": "Select",
-                        "options": [
-                            "description",
-                            "license",
-                            "date_upload",
-                            "date_taken",
-                            "owner_name",
-                            "icon_server",
-                            "original_format",
-                            "last_update",
-                            "geo",
-                            "tags",
-                            "machine_tags",
-                            "o_dims",
-                            "views",
-                            "media",
-                            "path_alias",
-                            "url_sq",
-                            "url_t",
-                            "url_s",
-                            "url_q",
-                            "url_m",
-                            "url_n",
-                            "url_z",
-                            "url_c",
-                            "url_l",
-                            "url_o"
-                        ],
-                        "info": "Single extra name."
-                    },
-                    "info": "List of extra information to fetch for each returned record.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "extras",
-                        "format": "toString:{,}"
-                    }
                 }
             ],
             "vendorRequest": {
@@ -11233,7 +11264,7 @@
                     "name": "accuracy",
                     "type": "Number",
                     "info": "Recorded accuracy level of the photos to be updated. World level is 1, Country is ~3, Region ~6, City ~11, Street ~16. Current range is 1-16. Defaults to 16 if not specified.",
-                    "required": true,
+                    "required": false,
                     "vendorSchema": {
                         "name": "accuracy"
                     }
@@ -11748,10 +11779,6 @@
                 {
                     "name": "photoId",
                     "type": "Select",
-                    "options": [
-                        "1",
-                        "0"
-                    ],
                     "info": "The id of the photo to get permissions for.",
                     "required": true,
                     "vendorSchema": {
@@ -11851,7 +11878,7 @@
                 },
                 {
                     "name": "title",
-                    "type": "File",
+                    "type": "String",
                     "info": "The title of the photo.",
                     "required": false,
                     "vendorSchema": {
@@ -11860,7 +11887,7 @@
                 },
                 {
                     "name": "description",
-                    "type": "File",
+                    "type": "String",
                     "info": "A description of the photo. May contain some limited HTML.",
                     "required": false,
                     "vendorSchema": {

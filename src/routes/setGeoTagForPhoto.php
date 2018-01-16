@@ -36,7 +36,7 @@ $app->post('/api/Flickr/setGeoTagForPhoto', function ($request, $response) {
     ]);
     $query_str = "https://api.flickr.com/services/rest";
 
-    $data['method'] = 'flickr.photos.geo.removeLocation';
+    $data['method'] = 'flickr.photos.geo.setContext';
 $data['format'] = 'json';
 $data['nojsoncallback'] = '1';
 
