@@ -4,7 +4,7 @@ $app->post('/api/Flickr/createGallery', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','title','description']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','title']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,10 +12,10 @@ $app->post('/api/Flickr/createGallery', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','title'=>'title','description'=>'description'];
+    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','title'=>'title'];
     $optionalParams = ['primaryPhotoId'=>'primary_photo_id','fullResult'=>'full_result'];
     $bodyParams = [
-       'query' => ['oauth_token','format','oauth_secret','api_secret','api_key','method','title','description','primary_photo_id','full_result','nojsoncallback']
+       'query' => ['description'=>'description','oauth_token','format','oauth_secret','api_secret','api_key','method','title','description','primary_photo_id','full_result','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

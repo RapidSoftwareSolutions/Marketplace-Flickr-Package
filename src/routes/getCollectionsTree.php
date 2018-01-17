@@ -4,7 +4,7 @@ $app->post('/api/Flickr/getCollectionsTree', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','userId']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -15,23 +15,23 @@ $app->post('/api/Flickr/getCollectionsTree', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key'];
     $optionalParams = ['collectionId'=>'collection_id','userId'=>'user_id'];
     $bodyParams = [
-       'query' => ['api_key','method','collection_id','user_id','format','nojsoncallback']
+        'query' => ['api_key','method','collection_id','user_id','format','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
+
 
     $client = $this->httpClient;
     $query_str = "https://api.flickr.com/services/rest";
 
     $data['method'] = 'flickr.collections.getTree';
-$data['format'] = 'json';
-$data['nojsoncallback'] = '1';
+    $data['format'] = 'json';
+    $data['nojsoncallback'] = '1';
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];
-     
+
 
     try {
         $resp = $client->get($query_str, $requestParams);

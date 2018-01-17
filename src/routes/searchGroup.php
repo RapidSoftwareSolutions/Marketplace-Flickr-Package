@@ -15,7 +15,7 @@ $app->post('/api/Flickr/searchGroup', function ($request, $response) {
     $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','text'=>'text'];
     $optionalParams = ['perPage'=>'per_page','page'=>'page'];
     $bodyParams = [
-       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','perPage','text','format','page','nojsoncallback']
+       'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','per_page','text','format','page','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

@@ -1,10 +1,10 @@
 <?php
 
-$app->post('/api/Flickr/getPandaPhotos', function ($request, $response) {
+$app->post('/api/Flickr/getGroupInfoByAlias', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','pandaName']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','groupPathAlias']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,24 +12,22 @@ $app->post('/api/Flickr/getPandaPhotos', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'api_key','pandaName'=>'panda_name'];
-    $optionalParams = ['extras'=>'extras','perPage'=>'per_page','page'=>'page'];
+    $requiredParams = ['apiKey'=>'api_key','groupPathAlias'=>'group_path_alias',];
+    $optionalParams = ['lang'=>'lang'];
     $bodyParams = [
-       'query' => ['api_key','method','format','nojsoncallback','page','per_page','extras','panda_name']
+        'query' => ['api_key','method','group_id','group_path_alias','lang','nojsoncallback','format']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
-    if(isset($data['extras'])) { $data['extras'] = \Models\Params::toString($data['extras'], ','); }
+
 
     $client = $this->httpClient;
     $query_str = "https://api.flickr.com/services/rest";
 
-    $data['method'] = 'flickr.panda.getPhotos';
+    $data['method'] = 'flickr.groups.getInfo';
     $data['format'] = 'json';
     $data['nojsoncallback'] = '1';
-
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = [];

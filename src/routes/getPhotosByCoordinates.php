@@ -4,7 +4,7 @@ $app->post('/api/Flickr/getPhotosByCoordinates', function ($request, $response) 
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','coordinates','accuracy']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','coordinates']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,8 +12,8 @@ $app->post('/api/Flickr/getPhotosByCoordinates', function ($request, $response) 
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','coordinates'=>'coordinates','accuracy'=>'accuracy'];
-    $optionalParams = ['extras'=>'extras','perPage'=>'per_page','page'=>'page'];
+    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','coordinates'=>'coordinates'];
+    $optionalParams = ['extras'=>'extras','perPage'=>'per_page','page'=>'page','accuracy'=>'accuracy'];
     $bodyParams = [
        'query' => ['oauth_token','oauth_secret','api_secret','api_key','method','format','nojsoncallback','lat','lon','accuracy','extras','per_page','page']
     ];
