@@ -394,7 +394,7 @@ Get information about a group by path alias of the group.
 | Field         | Type       | Description
 |---------------|------------|----------
 | apiKey        | credentials| ApiKey of the your app.
-| groupPathAlias| String     | The path alias of the group. One of this or the group_id param is required
+| groupPathAlias| String     | The path alias of the group.
 | lang          | Select     | The language of the group name and description to fetch. If the language is not found, the primary language of the group will be returned.
 
 ## Flickr.getGroupInfo

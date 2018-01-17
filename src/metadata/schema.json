@@ -3121,7 +3121,7 @@
                 {
                     "name": "groupPathAlias",
                     "type": "String",
-                    "info": "The path alias of the group. One of this or the group_id param is required",
+                    "info": "The path alias of the group.",
                     "required": true,
                     "vendorSchema": {
                         "name": "group_path_alias"
@@ -5232,7 +5232,7 @@
                 },
                 {
                     "name": "namespace",
-                    "type": "Number",
+                    "type": "String",
                     "info": "Limit the list of pairs returned to those that have the following namespace.",
                     "required": false,
                     "vendorSchema": {
