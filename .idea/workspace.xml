@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5753efb-8ed0-4f64-8408-6cd301fb7719" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" afterPath="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" />
+      <change beforePath="$PROJECT_DIR$/src/routes/createPhotoset.php" afterPath="$PROJECT_DIR$/src/routes/createPhotoset.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="placesForTagsByPlaceId.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="placesForTagsByPlaceId.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/placesForTagsByPlaceId.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createPhotoset.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/routes/createPhotoset.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -105,6 +115,7 @@
         <option value="$PROJECT_DIR$/src/routes/findByLatLon.php" />
         <option value="$PROJECT_DIR$/src/routes/suggestLocation.php" />
         <option value="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" />
+        <option value="$PROJECT_DIR$/src/routes/createPhotoset.php" />
       </list>
     </option>
   </component>
@@ -205,12 +216,12 @@
       <updated>1516002509279</updated>
       <workItem from="1516002510748" duration="5377000" />
       <workItem from="1516109332642" duration="2180000" />
-      <workItem from="1516186928627" duration="2806000" />
+      <workItem from="1516186928627" duration="3476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10363000" />
+    <option name="totallyTimeSpent" value="11033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1857" height="1092" extended-state="6" />
@@ -481,8 +492,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/placesForTagsByPlaceId.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/createPhotoset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
           <folding />
         </state>
       </provider>
