@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5753efb-8ed0-4f64-8408-6cd301fb7719" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/routes/createPhotoset.php" afterPath="$PROJECT_DIR$/src/routes/createPhotoset.php" />
+      <change beforePath="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" afterPath="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="placesForBoundingBox.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="placesForBoundingBox.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/routes/placesForBoundingBox.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+            <state relative-caret-position="558">
+              <caret line="31" column="64" lean-forward="false" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -46,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createPhotoset.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createPhotoset.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/createPhotoset.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="486">
@@ -114,8 +114,8 @@
         <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/src/routes/findByLatLon.php" />
         <option value="$PROJECT_DIR$/src/routes/suggestLocation.php" />
-        <option value="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" />
         <option value="$PROJECT_DIR$/src/routes/createPhotoset.php" />
+        <option value="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" />
       </list>
     </option>
   </component>
@@ -216,12 +216,12 @@
       <updated>1516002509279</updated>
       <workItem from="1516002510748" duration="5377000" />
       <workItem from="1516109332642" duration="2180000" />
-      <workItem from="1516186928627" duration="3476000" />
+      <workItem from="1516186928627" duration="4112000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11033000" />
+    <option name="totallyTimeSpent" value="11669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1857" height="1092" extended-state="6" />
@@ -482,14 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/placesForBoundingBox.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/placesForTagsByPlaceId.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -502,6 +494,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/placesForBoundingBox.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="64" lean-forward="false" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
           <folding />
         </state>
       </provider>
