@@ -227,7 +227,8 @@ $routes = [
     'deleteNoteFromPhoto',
     'getPhotoLicenses',
     'setPhotoLicense',
-    'replacePhoto'
+    'replacePhoto',
+    'getUserPhotosUrl'
 ];
 foreach($routes as $file) {
     require __DIR__ . '/../src/routes/'.$file.'.php';

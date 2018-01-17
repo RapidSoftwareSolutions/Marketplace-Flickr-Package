@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Flickr/getUserPhotos', function ($request, $response) {
+$app->post('/api/Flickr/getUserPhotosUrl', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
