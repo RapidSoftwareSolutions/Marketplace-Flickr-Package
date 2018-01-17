@@ -20,7 +20,7 @@ $app->post('/api/Flickr/placesForBoundingBox', function ($request, $response) {
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
+    $data['minBBox'] = $data['minBBox'].','.$data['maxBBox'];
 
     $stack = GuzzleHttp\HandlerStack::create();    $middleware = new GuzzleHttp\Subscriber\Oauth\Oauth1([        'consumer_key'    => $data['api_key'],        'consumer_secret' => $data['api_secret'],        'token'           => $data['oauth_token'],        'token_secret'    => $data['oauth_secret']    ]);    $stack->push($middleware);    $client = new \GuzzleHttp\Client([        'handler' => $stack,        'auth' => 'oauth'    ]);
     $query_str = "https://api.flickr.com/services/rest/";

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5753efb-8ed0-4f64-8408-6cd301fb7719" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/routes/findByLatLon.php" afterPath="$PROJECT_DIR$/src/routes/findByLatLon.php" />
-      <change beforePath="$PROJECT_DIR$/src/routes/suggestLocation.php" afterPath="$PROJECT_DIR$/src/routes/suggestLocation.php" />
+      <change beforePath="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" afterPath="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,57 +20,37 @@
         <entry file="file://$PROJECT_DIR$/src/metadata/schema.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
-              <caret line="23596" column="37" lean-forward="true" selection-start-line="23596" selection-start-column="37" selection-end-line="23596" selection-end-column="37" />
+              <caret line="18604" column="36" lean-forward="false" selection-start-line="18604" selection-start-column="29" selection-end-line="18604" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="suggestLocation.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="placesForBoundingBox.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/placesForBoundingBox.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="placesForTagsByPlaceId.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/routes/placesForTagsByPlaceId.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="suggestLocation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/suggestLocation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="30" column="57" lean-forward="false" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="findByLatLon.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/findByLatLon.php">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="522">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getUserPhotosUrl.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/getUserPhotosUrl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="metadata.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/metadata.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getUserPhotoStats.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/getUserPhotoStats.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="41" />
+              <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="30" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -109,6 +87,7 @@
       <find>placeTypeId</find>
       <find>subscribe</find>
       <find>coordi</find>
+      <find>boundingB</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -125,6 +104,7 @@
         <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/src/routes/findByLatLon.php" />
         <option value="$PROJECT_DIR$/src/routes/suggestLocation.php" />
+        <option value="$PROJECT_DIR$/src/routes/placesForBoundingBox.php" />
       </list>
     </option>
   </component>
@@ -225,12 +205,12 @@
       <updated>1516002509279</updated>
       <workItem from="1516002510748" duration="5377000" />
       <workItem from="1516109332642" duration="2180000" />
-      <workItem from="1516186928627" duration="1996000" />
+      <workItem from="1516186928627" duration="2806000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9553000" />
+    <option name="totallyTimeSpent" value="10363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1857" height="1092" extended-state="6" />
@@ -405,14 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/getUserPhotoStats.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/metadata.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -467,14 +439,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/metadata/schema.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="23596" column="37" lean-forward="true" selection-start-line="23596" selection-start-column="37" selection-end-line="23596" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/findByLatLon.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -483,10 +447,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/getUserPhotoStats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/metadata/schema.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="18604" column="36" lean-forward="false" selection-start-line="18604" selection-start-column="29" selection-end-line="18604" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/suggestLocation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="57" lean-forward="false" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+        <state relative-caret-position="522">
+          <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="30" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/placesForBoundingBox.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/placesForTagsByPlaceId.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
