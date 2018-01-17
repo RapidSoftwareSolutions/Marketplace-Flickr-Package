@@ -27,6 +27,8 @@ $app->post('/api/Flickr/suggestLocation', function ($request, $response) {
 
     $data['method'] = 'flickr.photos.suggestions.suggestLocation';
 $data['format'] = 'json';    $data['nojsoncallback'] = 1;
+    $data['lat'] = explode(',', $data['coordinates'])[0];
+    $data['lon'] = explode(',', $data['coordinates'])[1];
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["apikey"=>"{$data['apiKey']}"];
