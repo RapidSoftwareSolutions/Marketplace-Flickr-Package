@@ -388,7 +388,7 @@ Browse the group category tree, finding groups and sub-categories.
 | accessSecret| String     | accessSecret from the getAccessToken method.
 | catId       | String     | The category id to fetch a list of groups and sub-categories for. If not specified, it defaults to zero, the root of the category tree.
 
-## Flickr.getGroupInfo
+## Flickr.getGroupInfoByAlias
 Get information about a group by path alias of the group.
 
 | Field         | Type       | Description
@@ -397,14 +397,13 @@ Get information about a group by path alias of the group.
 | groupPathAlias| String     | The path alias of the group. One of this or the group_id param is required
 | lang          | Select     | The language of the group name and description to fetch. If the language is not found, the primary language of the group will be returned.
 
-## Flickr.getGroupInfoByAlias
+## Flickr.getGroupInfo
 Get information about a group.
 
 | Field         | Type       | Description
 |---------------|------------|----------
 | apiKey        | credentials| ApiKey of the your app.
 | groupId       | String     | The NSID of the group to fetch information for.
-| groupPathAlias| String     | The path alias of the group. One of this or the group_id param is required
 | lang          | Select     | The language of the group name and description to fetch. If the language is not found, the primary language of the group will be returned.
 
 
@@ -646,7 +645,7 @@ Return a list of unique namespaces, optionally limited by a given predicate, in 
 | Field    | Type       | Description
 |----------|------------|----------
 | apiKey   | credentials| ApiKey of the your app.
-| predicate| Number     | Limit the list of namespaces returned to those that have the following predicate.
+| predicate| String     | Limit the list of namespaces returned to those that have the following predicate.
 | perPage  | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page     | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
 
@@ -656,8 +655,8 @@ Return a list of unique namespace and predicate pairs, optionally limited by pre
 | Field    | Type       | Description
 |----------|------------|----------
 | apiKey   | credentials| ApiKey of the your app.
-| namespace| Number     | Limit the list of pairs returned to those that have the following namespace.
-| predicate| Number     | Limit the list of namespaces returned to those that have the following predicate.
+| namespace| String     | Limit the list of pairs returned to those that have the following namespace.
+| predicate| String     | Limit the list of namespaces returned to those that have the following predicate.
 | perPage  | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page     | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
 
@@ -667,7 +666,7 @@ Return a list of unique predicates, optionally limited by a given namespace.
 | Field    | Type       | Description
 |----------|------------|----------
 | apiKey   | credentials| ApiKey of the your app.
-| namespace| Number     | Limit the list of predicates returned to those that have the following namespace.
+| namespace| String     | Limit the list of predicates returned to those that have the following namespace.
 | perPage  | Number     | Number of items to return per page. If this argument is omitted, it defaults to 10. The maximum allowed value is 50.
 | page     | Number     | The page of results to return. If this argument is omitted, it defaults to 1.
 
