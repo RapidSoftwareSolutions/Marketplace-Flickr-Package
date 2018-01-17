@@ -4,7 +4,7 @@ $app->post('/api/Flickr/replacePhoto', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','photoId','photo']);
+    $validateRes = $checkRequest->validate($request, ['apiKey','apiSecret','accessToken','accessSecret','photoId','photoUrl']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,35 +12,40 @@ $app->post('/api/Flickr/replacePhoto', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','photoId'=>'photo_id','photo'=>'photo'];
+    $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret','photoId'=>'photo_id','photoUrl'=>'photo_url'];
     $optionalParams = [];
     $bodyParams = [
-       'multipart' => ['photo','photo_id','method','format','api_key','oauth_token','oauth_secret','api_secret','nojsoncallback']
+       'query' => ['photo_id','method','format','api_key','oauth_token','oauth_secret','api_secret','nojsoncallback']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
+    $data['format'] = 'json';    $data['nojsoncallback'] = 1;
 
-    
 
-    $stack = GuzzleHttp\HandlerStack::create();    $middleware = new GuzzleHttp\Subscriber\Oauth\Oauth1([        'consumer_key'    => $data['api_key'],        'consumer_secret' => $data['api_secret'],        'token'           => $data['oauth_token'],        'token_secret'    => $data['oauth_secret']    ]);    $stack->push($middleware);    $client = new \GuzzleHttp\Client([        'handler' => $stack,        'auth' => 'oauth'    ]);
-    $query_str = "https://up.flickr.com/services/replace/";
+    $stack = GuzzleHttp\HandlerStack::create();
+    $middleware = new GuzzleHttp\Subscriber\Oauth\Oauth1([
+        'consumer_key'    => $data['api_key'],
+        'consumer_secret' => $data['api_secret'],
+        'token'           => $data['oauth_token'],
+        'token_secret'    => $data['oauth_secret']
+    ]);
+    $stack->push($middleware);
+    $client = new \GuzzleHttp\Client([
+        'handler' => $stack,
+        'auth' => 'oauth'
+    ]);    $query_str = "https://up.flickr.com/services/replace/";
 
     
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
-    $requestParams['headers'] = ["apikey"=>"{$data['apiKey']}"];
+    $requestParams['headers'] = [];
     $requestParams['multipart'] = [
         [
             'name'     => 'photo',
             'contents' => fopen($data['photo_url'], 'r')
         ]
     ];
-    $requestParams['multipart'] = [
-        [
-            'name'     => 'photoId',
-            'contents' => $data['photoId']
-        ]
-    ];
+
 
     try {
         $resp = $client->post($query_str, $requestParams);

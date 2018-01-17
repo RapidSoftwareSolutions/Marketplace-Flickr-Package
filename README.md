@@ -2662,21 +2662,6 @@ Remove a suggestion for a photo.
 | accessSecret| String     | accessSecret from the getAccessToken method.
 | suggestionId| String     | Id of the suggestion
 
-## Flickr.suggestLocation
-Suggest a geotagged location for a photo.
-
-| Field       | Type       | Description
-|-------------|------------|----------
-| apiKey      | credentials| ApiKey of the your app.
-| apiSecret   | credentials| ApiSecret of the your app.
-| accessToken | String     | accessToken from the getAccessToken method.
-| accessSecret| String     | accessSecret from the getAccessToken method.
-| photoId     | String     | Id of the photo
-| coordinates | Map        | Defines the coordinates for a radial query centered around (lat, lon).
-| accuracy    | Number     | Defines the accuracy
-| woeId       | Number     | A 32-bit integer for a Where on Earth ID. 
-| placeId     | String     | A Flickr Places ID. 
-| note        | String     | A short note or history to include with the suggestion.
 
 ## Flickr.addPersonToPhoto
 Add a person to a photo.

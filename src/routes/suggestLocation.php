@@ -52,7 +52,7 @@ $data['format'] = 'json';    $data['nojsoncallback'] = 1;
 
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
 
-        $responseBody = $exception->getResponse()->getBody()->getContents();
+        $responseBody = $exception->getResponse();//->getBody()->getContents();
         if(empty(json_decode($responseBody))) {
             $out = $responseBody;
         } else {
@@ -63,8 +63,9 @@ $data['format'] = 'json';    $data['nojsoncallback'] = 1;
         $result['contextWrites']['to']['status_msg'] = $out;
 
     } catch (GuzzleHttp\Exception\ServerException $exception) {
-
-        $responseBody = $exception->getResponse()->getBody()->getContents();
+var_dump($exception->getMessage());
+exit();
+        $responseBody = $exception->getResponse();//->getBody()->getContents();
         if(empty(json_decode($responseBody))) {
             $out = $responseBody;
         } else {
