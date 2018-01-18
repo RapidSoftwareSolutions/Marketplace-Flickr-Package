@@ -2791,15 +2791,4 @@ Sets the license for a photo.
 | photoId     | String     | Id of the photo
 | licenseId   | String     | Id of the license
 
-## Flickr.replacePhoto
-Replace photo
-
-| Field       | Type       | Description
-|-------------|------------|----------
-| apiKey      | credentials| ApiKey of the your app.
-| apiSecret   | credentials| ApiSecret of the your app.
-| accessToken | String     | accessToken from the getAccessToken method.
-| accessSecret| String     | accessSecret from the getAccessToken method.
-| photoId     | String     | Id of the photo
-| photoUrl    | File       | New photo
 
