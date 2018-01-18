@@ -1855,7 +1855,7 @@ Get the tag list for a given user (or the currently logged in user).
 | apiSecret   | credentials| ApiSecret of the your app.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
-| photoId     | String     | he NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.
+| userId     | String     | The NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.
 
 ## Flickr.getListUserPopular
 Get the popular tags for a given user (or the currently logged in user).
@@ -1866,7 +1866,7 @@ Get the popular tags for a given user (or the currently logged in user).
 | apiSecret   | credentials| ApiSecret of the your app.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
-| photoId     | String     | The NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.
+| userId     | String     | The NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.
 | count       | Number     | The number of tags to return. Defaults to 20. Maximum allowed value is 200.
 
 ## Flickr.getListUserRaw
@@ -1988,7 +1988,7 @@ Returns specified user's profile info, respecting profile privacy settings
 | apiSecret   | credentials| ApiSecret of the your app.
 | accessToken | String     | accessToken from the getAccessToken method.
 | accessSecret| String     | accessSecret from the getAccessToken method.
-| userId      | String     | The NSID of the user to fetch the url for. 
+| userId      | String     | The NSID of the user to fetch the profile for. 
 
 ## Flickr.getContentType
 Returns the default content type preference for the user.

@@ -13,7 +13,7 @@ $app->post('/api/Flickr/getListUser', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'api_key','apiSecret'=>'api_secret','accessToken'=>'oauth_token','accessSecret'=>'oauth_secret'];
-    $optionalParams = ['photoId'=>'user_id'];
+    $optionalParams = ['userId'=>'user_id'];
     $bodyParams = [
        'query' => ['user_id','method','format','api_key','oauth_token','oauth_secret','api_secret','nojsoncallback']
     ];

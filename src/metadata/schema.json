@@ -15490,6 +15490,15 @@
                     }
                 },
                 {
+                    "name": "date",
+                    "type": "DatePicker",
+                    "info": "Stats will be returned for this date. This should be in either be in YYYY-MM-DD",
+                    "required": true,
+                    "vendorSchema": {
+                        "format": "toFormat:{Y-m-d}"
+                    }
+                },
+                {
                     "name": "accessToken",
                     "type": "String",
                     "info": "accessToken from the getAccessToken method.",
@@ -15505,15 +15514,6 @@
                     "required": true,
                     "vendorSchema": {
                         "name": "oauth_secret"
-                    }
-                },
-                {
-                    "name": "date",
-                    "type": "DatePicker",
-                    "info": "Stats will be returned for this date. This should be in either be in YYYY-MM-DD",
-                    "required": true,
-                    "vendorSchema": {
-                        "format": "toFormat:{Y-m-d}"
                     }
                 }
             ],
@@ -15970,9 +15970,9 @@
                     }
                 },
                 {
-                    "name": "photoId",
+                    "name": "userId",
                     "type": "String",
-                    "info": "he NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.",
+                    "info": "The NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.",
                     "required": false,
                     "vendorSchema": {
                         "name": "user_id"
@@ -16060,7 +16060,7 @@
                     }
                 },
                 {
-                    "name": "photoId",
+                    "name": "userId",
                     "type": "String",
                     "info": "The NSID of the user to fetch the tag list for. If this argument is not specified, the currently logged in user (if any) is assumed.",
                     "required": false,
@@ -17098,7 +17098,7 @@
                 {
                     "name": "userId",
                     "type": "String",
-                    "info": "The NSID of the user to fetch the url for. ",
+                    "info": "The NSID of the user to fetch the profile for. ",
                     "required": true,
                     "vendorSchema": {
                         "name": "user_id"
