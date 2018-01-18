@@ -13,7 +13,7 @@ $app->post('/api/Flickr/getUserPhoto', function ($request, $response) {
     }
 
     $requiredParams = ['apiKey'=>'api_key','userId'=>'user_id'];
-    $optionalParams = ['safeSearch'=>'safe_search','minUploadDate'=>'min_upload_date','maxUploadDate'=>'max_upload_date','maxUploadDate'=>'max_upload_date','minTakenDate'=>'min_taken_date','contentType'=>'content_type','privacyFilter'=>'privacy_filter','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
+    $optionalParams = ['safeSearch'=>'safe_search','minUploadDate'=>'min_upload_date','maxUploadDate'=>'max_upload_date','maxTakenDate'=>'max_taken_date','minTakenDate'=>'min_taken_date','contentType'=>'content_type','privacyFilter'=>'privacy_filter','extras'=>'extras','perPage'=>'per_page','page'=>'page'];
     $bodyParams = [
        'query' => ['api_key','method','format','nojsoncallback','page','per_page','extras','privacy_filter','content_type','max_upload_date','max_taken_date','min_taken_date','max_upload_date','min_upload_date','safe_search','user_id']
     ];
